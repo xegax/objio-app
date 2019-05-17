@@ -1,0 +1,20 @@
+{
+  "name": "objio-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": "git@github.com:xegax/objio-app.git",
+  "scripts": {},
+  "author": "xega",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "objio": "^0.0.40",
+    "objio-layout": "^0.0.40",
+    "objio-mysql-database": "^0.0.40",
+    "objio-object": "^0.0.40",
+    "objio-sqlite-table": "^0.0.40",
+    "ts-react-ui": "^0.1.40"
+  }
+}
