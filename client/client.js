@@ -87,240 +87,6 @@ var client =
 /************************************************************************/
 /******/ ({
 
-/***/ "../objio-layout/base/category-filter.js":
-/*!***********************************************!*\
-  !*** ../objio-layout/base/category-filter.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var layout_1 = __webpack_require__(/*! ./layout */ "../objio-layout/base/layout.js");
-var CategoryFilterBase = /** @class */ (function (_super) {
-    __extends(CategoryFilterBase, _super);
-    function CategoryFilterBase() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.sortType = 'value';
-        _this.sortDir = 'desc';
-        return _this;
-    }
-    CategoryFilterBase.prototype.setColumn = function (name) {
-        if (name == this.column)
-            return false;
-        this.column = name;
-        this.holder.save();
-        this.holder.delayedNotify();
-        return true;
-    };
-    CategoryFilterBase.prototype.getColumn = function () {
-        return this.column;
-    };
-    CategoryFilterBase.prototype.setSortType = function (type) {
-        if (type == this.sortType)
-            return false;
-        this.sortType = type;
-        this.holder.save();
-        this.holder.delayedNotify();
-        return true;
-    };
-    CategoryFilterBase.prototype.getSortType = function () {
-        return this.sortType;
-    };
-    CategoryFilterBase.prototype.setSortDir = function (dir) {
-        if (dir == this.sortDir)
-            return false;
-        this.sortDir = dir;
-        this.holder.save();
-        this.holder.delayedNotify();
-        return true;
-    };
-    CategoryFilterBase.prototype.setParentTable = function (parent) {
-        if (parent == this.obj)
-            parent = null;
-        if (this.parentTable == parent)
-            return;
-        this.parentTable = parent;
-        this.holder.save();
-        this.holder.delayedNotify();
-    };
-    CategoryFilterBase.prototype.setParentIdColumn = function (column) {
-        if (this.parentIdColumn == column)
-            return;
-        this.parentIdColumn = column;
-        this.holder.save();
-        this.holder.delayedNotify();
-    };
-    CategoryFilterBase.prototype.setIdColumn = function (column) {
-        if (this.idColumn == column)
-            return;
-        this.idColumn = column;
-        this.holder.save();
-        this.holder.delayedNotify();
-    };
-    CategoryFilterBase.prototype.getSortDir = function () {
-        return this.sortDir;
-    };
-    CategoryFilterBase.prototype.getDataSource = function () {
-        return this.parentTable || this.obj;
-    };
-    CategoryFilterBase.prototype.onUpdateCondition = function (cond) {
-    };
-    CategoryFilterBase.TYPE_ID = 'CategoryFilter2';
-    CategoryFilterBase.SERIALIZE = function () { return (__assign({}, layout_1.ObjectHolderBase.SERIALIZE(), { column: { type: 'string' }, sortType: { type: 'string' }, sortDir: { type: 'string' }, parentTable: { type: 'object' }, parentIdColumn: { type: 'string' }, idColumn: { type: 'string' } })); };
-    return CategoryFilterBase;
-}(layout_1.ConditionHolder));
-exports.CategoryFilterBase = CategoryFilterBase;
-//# sourceMappingURL=category-filter.js.map
-
-/***/ }),
-
-/***/ "../objio-layout/base/drilldown-table.js":
-/*!***********************************************!*\
-  !*** ../objio-layout/base/drilldown-table.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
-            t[p[i]] = s[p[i]];
-    return t;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var layout_1 = __webpack_require__(/*! ./layout */ "../objio-layout/base/layout.js");
-// base to client and server object
-var DrillDownTableBase = /** @class */ (function (_super) {
-    __extends(DrillDownTableBase, _super);
-    function DrillDownTableBase() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.colsToShow = Array();
-        _this.sort = {};
-        return _this;
-    }
-    DrillDownTableBase.prototype.setSort = function (args) {
-        var save = args.save, sort = __rest(args, ["save"]);
-        if (sort.column == this.sort.column && sort.dir == this.sort.dir)
-            return;
-        this.sort = __assign({}, sort);
-        this.holder.delayedNotify();
-        (save == null || save) && this.holder.save();
-    };
-    DrillDownTableBase.prototype.getSort = function () {
-        return this.sort;
-    };
-    DrillDownTableBase.prototype.addColumnToShow = function (args) {
-        if (this.isColumnShown(args.column) == args.show)
-            return;
-        if (args.show)
-            this.colsToShow.push(args.column);
-        else
-            this.colsToShow.splice(this.colsToShow.indexOf(args.column), 1);
-        this.holder.delayedNotify();
-        (args.save == null || args.save) && this.holder.save();
-    };
-    DrillDownTableBase.prototype.setShowOneColumn = function (args) {
-        if (this.colsToShow.length == 1 && this.colsToShow[0] == args.column)
-            return;
-        this.colsToShow = [];
-        this.addColumnToShow(__assign({ show: true }, args));
-    };
-    DrillDownTableBase.prototype.toggleColumn = function (args) {
-        var show = !this.isColumnShown(args.column);
-        this.addColumnToShow(__assign({}, args, { show: show }));
-    };
-    DrillDownTableBase.prototype.isColumnShown = function (column) {
-        return this.colsToShow.indexOf(column) != -1;
-    };
-    DrillDownTableBase.prototype.getColumnsToShow = function () {
-        return this.colsToShow;
-    };
-    DrillDownTableBase.prototype.getIdColumn = function () {
-        return this.idColumn;
-    };
-    DrillDownTableBase.prototype.setIdColumn = function (args) {
-        if (args.column == this.idColumn)
-            return;
-        this.idColumn = args.column;
-        this.holder.delayedNotify();
-        args.save && this.holder.save();
-    };
-    DrillDownTableBase.prototype.getSearchColumn = function () {
-        return this.searchColumn;
-    };
-    DrillDownTableBase.prototype.setSearchColumn = function (args) {
-        if (this.searchColumn == args.column)
-            return;
-        this.searchColumn = args.column;
-        this.holder.delayedNotify();
-        args.save && this.holder.save();
-    };
-    DrillDownTableBase.prototype.onUpdateCondition = function (cond) {
-    };
-    DrillDownTableBase.TYPE_ID = 'DrillDownTable2';
-    DrillDownTableBase.SERIALIZE = function () { return (__assign({}, layout_1.ConditionHolder.SERIALIZE(), { idColumn: { type: 'string' }, colsToShow: { type: 'json' }, searchColumn: { type: 'string' }, sort: { type: 'json' } })); };
-    return DrillDownTableBase;
-}(layout_1.ConditionHolder));
-exports.DrillDownTableBase = DrillDownTableBase;
-//# sourceMappingURL=drilldown-table.js.map
-
-/***/ }),
-
 /***/ "../objio-layout/base/layout.js":
 /*!**************************************!*\
   !*** ../objio-layout/base/layout.js ***!
@@ -427,593 +193,17 @@ var DocLayoutBase = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.layout = { type: 'row', items: [] };
         _this.holders = new objio_1.OBJIOArray();
-        _this.condHandler = new ConditionHandler(_this);
         return _this;
     }
     DocLayoutBase.prototype.getHolders = function () {
         return this.holders;
-    };
-    DocLayoutBase.prototype.getCondHandler = function () {
-        return this.condHandler;
     };
     DocLayoutBase.TYPE_ID = 'DocLayout2';
     DocLayoutBase.SERIALIZE = function () { return (__assign({}, object_base_1.ObjectBase.SERIALIZE(), { layout: { type: 'json' }, holders: { type: 'object' } })); };
     return DocLayoutBase;
 }(object_base_1.ObjectBase));
 exports.DocLayoutBase = DocLayoutBase;
-var ConditionHandler = /** @class */ (function () {
-    function ConditionHandler(layout) {
-        this.self = {}; // self conditions
-        this.combined = {}; // combined conditions
-        this.layout = layout;
-    }
-    ConditionHandler.prototype.updateCombinedCondition = function (tgt) {
-        var _this = this;
-        var tgtId = tgt.holder.getID();
-        if (this.self[tgtId])
-            return;
-        var combined = Array();
-        var holders = this.layout.getHolders().getArray();
-        var tableId = tgt.getObject().holder.getID();
-        Object.keys(this.self).forEach(function (selfId) {
-            if (selfId == tgt.holder.getID())
-                return;
-            var holder = holders.find(function (holder) { return holder.holder.getID() == selfId; });
-            if (holder.getDataSource().holder.getID() != tableId)
-                return;
-            if (_this.self[selfId])
-                combined.push(_this.self[selfId]);
-        });
-        var newCond;
-        if (combined.length == 0) {
-            newCond = null;
-        }
-        else if (combined.length == 1) {
-            newCond = combined[0];
-        }
-        else if (combined.length > 1) {
-            newCond = { op: 'and', values: combined };
-        }
-        if (newCond == this.combined[tgtId])
-            return;
-        if (newCond && this.combined[tgtId] && JSON.stringify(newCond) == JSON.stringify(this.combined[tgtId]))
-            return;
-        tgt.onUpdateCondition(this.combined[tgtId] = newCond);
-    };
-    ConditionHandler.prototype.setSelfCondition = function (holder, cond) {
-        var _this = this;
-        this.self[holder.holder.getID()] = cond;
-        var holders = this.layout.getHolders().getArray();
-        holders.forEach(function (obj) {
-            if (obj == holder)
-                return;
-            _this.updateCombinedCondition(obj);
-        });
-    };
-    ConditionHandler.prototype.getSelfCondition = function (holder) {
-        return this.self[holder.holder.getID()];
-    };
-    ConditionHandler.prototype.getCombinedCondition = function (holder) {
-        return this.combined[holder.holder.getID()];
-    };
-    return ConditionHandler;
-}());
-exports.ConditionHandler = ConditionHandler;
-var ConditionHolder = /** @class */ (function (_super) {
-    __extends(ConditionHolder, _super);
-    function ConditionHolder() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    ConditionHolder.prototype.getDataSource = function () {
-        return this.obj;
-    };
-    return ConditionHolder;
-}(ObjectHolderBase));
-exports.ConditionHolder = ConditionHolder;
 //# sourceMappingURL=layout.js.map
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! bluebird */ "bluebird")))
-
-/***/ }),
-
-/***/ "../objio-layout/base/range-filter.js":
-/*!********************************************!*\
-  !*** ../objio-layout/base/range-filter.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var layout_1 = __webpack_require__(/*! ./layout */ "../objio-layout/base/layout.js");
-var RangeFilterBase = /** @class */ (function (_super) {
-    __extends(RangeFilterBase, _super);
-    function RangeFilterBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    RangeFilterBase.prototype.setColumn = function (column) {
-        if (this.column == column)
-            return false;
-        this.column = column;
-        this.holder.delayedNotify();
-        this.holder.save();
-        return true;
-    };
-    RangeFilterBase.prototype.onUpdateCondition = function (cond) {
-    };
-    RangeFilterBase.TYPE_ID = 'RangeFilter2';
-    RangeFilterBase.SERIALIZE = function () { return (__assign({}, layout_1.ObjectHolderBase.SERIALIZE(), { column: { type: 'string' } })); };
-    return RangeFilterBase;
-}(layout_1.ConditionHolder));
-exports.RangeFilterBase = RangeFilterBase;
-//# sourceMappingURL=range-filter.js.map
-
-/***/ }),
-
-/***/ "../objio-layout/client/category-filter.js":
-/*!*************************************************!*\
-  !*** ../objio-layout/client/category-filter.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Promise) {
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var category_filter_1 = __webpack_require__(/*! ../base/category-filter */ "../objio-layout/base/category-filter.js");
-var doc_table_1 = __webpack_require__(/*! objio-object/client/database/doc-table */ "../objio-object/client/database/doc-table.js");
-var prop_sheet_1 = __webpack_require__(/*! ts-react-ui/prop-sheet */ "../ts-react-ui/prop-sheet/index.js");
-var tabs_1 = __webpack_require__(/*! ts-react-ui/tabs */ "../ts-react-ui/tabs.js");
-var list_view_loadable_1 = __webpack_require__(/*! ts-react-ui/list-view-loadable */ "../ts-react-ui/list-view-loadable.js");
-var sortTypeArr = [
-    { value: 'value', render: 'Value' },
-    { value: 'count', render: 'Count' }
-];
-var sortDirArr = [
-    { value: 'natural', render: 'Natural' },
-    { value: 'asc', render: 'Ascending' },
-    { value: 'desc', render: 'Descending' }
-];
-var CategoryFilter = /** @class */ (function (_super) {
-    __extends(CategoryFilter, _super);
-    function CategoryFilter(args) {
-        var _this = _super.call(this, args) || this;
-        _this.rowsNum = 0;
-        _this.listModel = new list_view_loadable_1.ListViewLoadableModel();
-        _this.onLoad = function () {
-            _this.updateTable();
-            return Promise.resolve();
-        };
-        _this.onCreate = function () {
-            _this.updateTable();
-            return Promise.resolve();
-        };
-        _this.onChange = function () {
-            _this.updateTable();
-        };
-        _this.updateTable = function (filterStr) {
-            if (!_this.column)
-                return;
-            var column = _this.sortType == 'value' ? _this.column : 'count';
-            var dir = _this.sortDir == 'asc' ? 'asc' : 'desc';
-            var filter = _this.cond;
-            if (filterStr) {
-                var filterCond = { column: _this.column, like: true, value: filterStr };
-                filter = _this.cond ? { op: 'and', values: [_this.cond, filterCond] } : filterCond;
-            }
-            var args = {
-                distinct: { column: _this.column },
-                sort: _this.sortDir == 'natural' ? null : [{ column: column, dir: dir }],
-                filter: filter
-            };
-            var task = _this.obj.getTableRef().createSubtable(args)
-                .then(function (res) {
-                _this.rowsNum = res.rowsNum;
-                _this.subtable = res.subtable;
-                _this.listModel.setValues([]);
-                var values = _this.loadNext(0, 100).then(function (values) {
-                    _this.listModel.appendValues(values);
-                });
-                _this.watchTask(values);
-                _this.holder.notify();
-            });
-            _this.watchTask(task);
-        };
-        _this.holder.addEventHandler({
-            onLoad: _this.onLoad,
-            onCreate: _this.onCreate,
-            onObjChange: _this.onChange
-        });
-        return _this;
-    }
-    CategoryFilter.prototype.getRowsNum = function () {
-        return this.rowsNum;
-    };
-    CategoryFilter.prototype.getTotalRowsNum = function () {
-        return this.obj.getTotalRowsNum();
-    };
-    CategoryFilter.prototype.setColumn = function (column) {
-        if (!_super.prototype.setColumn.call(this, column))
-            return false;
-        this.updateTable();
-        return true;
-    };
-    CategoryFilter.prototype.setSortType = function (type) {
-        if (!_super.prototype.setSortType.call(this, type))
-            return false;
-        this.updateTable();
-        return true;
-    };
-    CategoryFilter.prototype.setSortDir = function (dir) {
-        if (!_super.prototype.setSortDir.call(this, dir))
-            return false;
-        this.updateTable();
-        return true;
-    };
-    CategoryFilter.prototype.getListModel = function () {
-        return this.listModel;
-    };
-    CategoryFilter.prototype.loadNext = function (first, count) {
-        var args = { first: first, count: count };
-        if (this.subtable)
-            args.table = this.subtable;
-        return this.watchTask(this.getObject().getTableRef().loadCells(args)
-            .then(function (rows) {
-            return rows.map(function (row, i) {
-                return {
-                    value: row[0],
-                    render: (React.createElement("div", { title: row[0] + " (" + row[1] + ")" }, row[0] == null || row[0].trim() == '' ? React.createElement("span", { style: { visibility: 'hidden' } }, "?") : row[0]))
-                };
-            });
-        }));
-    };
-    CategoryFilter.prototype.getDataProps = function () {
-        var _this = this;
-        return React.createElement(React.Fragment, null,
-            React.createElement(prop_sheet_1.PropItem, { label: 'rows', value: this.rowsNum }),
-            React.createElement(prop_sheet_1.DropDownPropItem, { label: 'column', value: this.column ? { value: this.column } : null, values: this.obj.getAllColumns().map(function (col) {
-                    return {
-                        value: col.name
-                    };
-                }), onSelect: function (value) { return _this.setColumn(value.value); } }),
-            React.createElement(prop_sheet_1.DropDownPropItem, { label: 'sort', disabled: this.sortDir == 'natural', value: { value: this.sortType }, values: sortTypeArr, onSelect: function (value) { return _this.setSortType(value.value); } }),
-            React.createElement(prop_sheet_1.DropDownPropItem, { label: 'sort direction', value: { value: this.sortDir }, values: sortDirArr, onSelect: function (value) { return _this.setSortDir(value.value); } }));
-    };
-    CategoryFilter.prototype.getAvailableTableSources = function () {
-        var objs = Array();
-        this.owner.getHolders().getArray().forEach(function (holder) {
-            var table = holder.getObject();
-            if (!(table instanceof doc_table_1.DocTable))
-                return;
-            if (objs.indexOf(table) != -1)
-                return;
-            objs.push(table);
-        });
-        return objs;
-    };
-    CategoryFilter.prototype.getDrillDownProps = function () {
-        var _this = this;
-        var tables = this.getAvailableTableSources();
-        return (React.createElement(React.Fragment, null,
-            React.createElement(prop_sheet_1.DropDownPropItem, { label: 'parent table', value: this.parentTable ? {
-                    value: this.parentTable.holder.getID(),
-                    render: this.parentTable.getName()
-                } : {
-                    value: '-- nothing --'
-                }, values: tables.map(function (table) {
-                    return {
-                        value: table.holder.getID(),
-                        render: table.getName()
-                    };
-                }), onSelect: function (value) {
-                    _this.setParentTable(tables.find(function (table) { return table.holder.getID() == value.value; }));
-                } }),
-            React.createElement(prop_sheet_1.DropDownPropItem, { label: 'parent id column', disabled: this.parentTable == null, value: { value: this.parentIdColumn || '-- nothing --' }, values: !this.parentTable ? [] :
-                    this.parentTable.getAllColumns().map(function (col) {
-                        return { value: col.name };
-                    }), onSelect: function (value) {
-                    _this.setParentIdColumn(value.value);
-                    if (_this.idColumn)
-                        return;
-                    if (_this.parentTable.getAllColumns().find(function (col) { return col.name == _this.parentIdColumn; }))
-                        _this.idColumn = _this.parentIdColumn;
-                } }),
-            React.createElement(prop_sheet_1.DropDownPropItem, { label: 'id column', disabled: this.parentTable == null, value: { value: this.idColumn || '-- nothing --' }, values: !this.parentTable ? [] :
-                    this.obj.getAllColumns().map(function (col) {
-                        return { value: col.name };
-                    }), onSelect: function (value) {
-                    _this.setIdColumn(value.value);
-                    if (_this.parentIdColumn)
-                        return;
-                    if (_this.obj.getAllColumns().find(function (col) { return col.name == _this.idColumn; }))
-                        _this.parentIdColumn = _this.idColumn;
-                } })));
-    };
-    CategoryFilter.prototype.getProps = function () {
-        return (React.createElement(prop_sheet_1.PropsGroup, { label: 'table', key: this.holder.getID() },
-            React.createElement(tabs_1.Tabs, { defaultSelect: 'data' },
-                React.createElement(tabs_1.Tab, { id: 'data', label: 'data' }, this.getDataProps()),
-                React.createElement(tabs_1.Tab, { id: 'drill-down', label: 'drill-down' }, this.getDrillDownProps()))));
-    };
-    CategoryFilter.prototype.filter = function (filter) {
-        this.updateTable(filter);
-        return Promise.resolve(this.listModel.getValues());
-    };
-    CategoryFilter.prototype.setSelect = function (value) {
-        this.select = value;
-        var cond;
-        if (value && !this.parentTable) {
-            cond = {
-                column: this.column,
-                value: '' + value
-            };
-        }
-        else if (value) {
-            cond = {
-                column: this.parentIdColumn,
-                value: {
-                    table: this.obj.getTable(),
-                    op: 'or',
-                    values: [{ column: this.column, value: value }]
-                }
-            };
-        }
-        this.owner.getCondHandler().setSelfCondition(this, cond);
-        this.holder.delayedNotify();
-    };
-    CategoryFilter.prototype.getSelect = function () {
-        return this.select;
-    };
-    CategoryFilter.prototype.onUpdateCondition = function (cond) {
-        this.cond = cond;
-        this.updateTable();
-    };
-    return CategoryFilter;
-}(category_filter_1.CategoryFilterBase));
-exports.CategoryFilter = CategoryFilter;
-//# sourceMappingURL=category-filter.js.map
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! bluebird */ "bluebird")))
-
-/***/ }),
-
-/***/ "../objio-layout/client/drilldown-table.js":
-/*!*************************************************!*\
-  !*** ../objio-layout/client/drilldown-table.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Promise) {
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var drilldown_table_1 = __webpack_require__(/*! ../base/drilldown-table */ "../objio-layout/base/drilldown-table.js");
-var list_1 = __webpack_require__(/*! ts-react-ui/list */ "../ts-react-ui/list.js");
-var prop_sheet_1 = __webpack_require__(/*! ts-react-ui/prop-sheet */ "../ts-react-ui/prop-sheet/index.js");
-var tabs_1 = __webpack_require__(/*! ts-react-ui/tabs */ "../ts-react-ui/tabs.js");
-var list_view_1 = __webpack_require__(/*! ts-react-ui/list-view */ "../ts-react-ui/list-view.js");
-var DrillDownTable = /** @class */ (function (_super) {
-    __extends(DrillDownTable, _super);
-    function DrillDownTable(args) {
-        var _this = _super.call(this, args) || this;
-        _this.tableRender = new list_1.RenderListModel(0, 20);
-        _this.maxTimeBetweenRequests = 500;
-        _this.colsToRender = Array();
-        _this.colsFromServer = Array();
-        _this.getColumnItem = function (col) {
-            return {
-                value: col.name,
-                render: function () {
-                    return (React.createElement(React.Fragment, null,
-                        React.createElement("i", { style: { marginRight: 5 }, className: _this.isColumnShown(col.name) ? 'fa fa-check-square-o' : 'fa fa-square-o', onClick: function (e) {
-                                if (e.ctrlKey)
-                                    _this.setShowOneColumn({ column: col.name, save: false });
-                                else
-                                    _this.toggleColumn({ column: col.name, save: false });
-                            } }),
-                        col.name));
-                }
-            };
-        };
-        _this.onLoad = function () {
-            _this.updateTable();
-            return Promise.resolve();
-        };
-        _this.onCreate = function () {
-            _this.colsToShow = _this.obj.getAllColumns().map(function (col) { return col.name; });
-            _this.holder.save();
-            _this.updateTable();
-            return Promise.resolve();
-        };
-        _this.onObjChange = function () {
-            _this.updateTable();
-        };
-        _this.loadItems = function (first, count) {
-            _this.lastLoadTimer && _this.lastLoadTimer.cancel();
-            _this.lastLoadTimer = Promise.delay(_this.maxTimeBetweenRequests)
-                .then(function () {
-                var args = { first: first, count: count };
-                if (_this.subtable)
-                    args.table = _this.subtable;
-                return _this.watchTask(_this.obj.getTableRef().loadCells(args));
-            });
-            return _this.lastLoadTimer;
-        };
-        _this.updateTable = function () {
-            _this.colsToRender = _this.obj.getAllColumns();
-            if (_this.colsToShow.length) {
-                _this.colsToRender = _this.colsToRender
-                    .filter(function (col) {
-                    return _this.colsToShow.indexOf(col.name) != -1;
-                });
-            }
-            _this.updateTableDataImpl();
-        };
-        _this.updateTableDataImpl = function () {
-            var args = {};
-            args.cols = _this.getColsToRequest();
-            if (_this.sort.column)
-                args.sort = [{ column: _this.sort.column, dir: _this.sort.dir }];
-            if (_this.cond)
-                args.filter = _this.cond;
-            if (_this.updateTask) {
-                _this.updateTask.cancel();
-                _this.removeTask(_this.updateTask);
-                _this.updateTask = null;
-            }
-            _this.updateTask = _this.obj.getTableRef().createSubtable(args);
-            _this.updateTask.then(function (res) {
-                _this.colsFromServer = res.columns.slice();
-                _this.subtable = res.subtable;
-                _this.updateTableRender(res.rowsNum, _this.getColsToShow());
-                _this.holder.notify();
-            });
-            _this.watchTask(_this.updateTask);
-        };
-        _this.tableRender.setHandler({
-            loadItems: _this.loadItems
-        });
-        _this.holder.addEventHandler({
-            onLoad: _this.onLoad,
-            onCreate: _this.onCreate,
-            onObjChange: _this.onObjChange
-        });
-        return _this;
-    }
-    DrillDownTable.prototype.getTableRender = function () {
-        return this.tableRender;
-    };
-    DrillDownTable.prototype.getProps = function () {
-        var _this = this;
-        return (React.createElement(prop_sheet_1.PropsGroup, { label: 'table' },
-            React.createElement(tabs_1.Tabs, { defaultSelect: 'data', key: this.holder.getID() },
-                React.createElement(tabs_1.Tab, { id: 'data', label: 'data' },
-                    React.createElement(prop_sheet_1.PropItem, { label: 'rows', value: this.tableRender.getItemsCount() }),
-                    React.createElement(prop_sheet_1.PropItem, { label: 'columns', value: this.colsToShow.length || this.obj.getAllColumns().length }),
-                    React.createElement(prop_sheet_1.PropItem, { inline: false },
-                        React.createElement(list_view_1.ListView, { itemsPerPage: 7, style: { flexGrow: 1, textAlign: 'left' }, values: this.obj.getAllColumns().map(this.getColumnItem) })),
-                    React.createElement(prop_sheet_1.DropDownPropItem, { label: 'sort', value: this.sort ? { value: this.sort.column } : null, values: this.obj.getAllColumns().map(function (col) {
-                            return {
-                                value: col.name
-                            };
-                        }), onSelect: function (value) {
-                            _this.setSort({
-                                column: value.value,
-                                dir: _this.sort.dir,
-                                save: false
-                            });
-                        } }),
-                    React.createElement(prop_sheet_1.DropDownPropItem, { label: 'sort direction', disabled: !this.sort, value: this.sort ? { value: this.sort.dir } : null, values: [
-                            { value: 'asc', render: 'Ascending' },
-                            { value: 'desc', render: 'Descending' }
-                        ], onSelect: function (value) {
-                            if (!_this.sort)
-                                return;
-                            _this.setSort({
-                                column: _this.sort.column,
-                                dir: value.value,
-                                save: false
-                            });
-                        } }),
-                    React.createElement(prop_sheet_1.PropItem, null,
-                        React.createElement("button", { onClick: function () {
-                                _this.onObjChange();
-                                _this.holder.save();
-                            } }, "apply"))))));
-    };
-    DrillDownTable.prototype.onUpdateCondition = function (cond) {
-        console.log(cond);
-        this.cond = cond;
-        this.updateTableDataImpl();
-    };
-    DrillDownTable.prototype.getColsToRequest = function () {
-        var _this = this;
-        if (this.colsToShow.length == 0)
-            return null;
-        return this.obj.getAllColumns()
-            .map(function (col) { return col.name; })
-            .filter(function (col) { return _this.colsToShow.indexOf(col) != -1; });
-    };
-    DrillDownTable.prototype.getColsToShow = function () {
-        var _this = this;
-        if (this.colsToShow.length == 0)
-            return this.colsFromServer.slice();
-        return this.colsFromServer.filter(function (col) {
-            return _this.colsToShow.indexOf(col.name) != -1;
-        });
-    };
-    DrillDownTable.prototype.updateTableRender = function (rowsNum, cols) {
-        var _this = this;
-        this.tableRender.setItemsCount(rowsNum);
-        this.tableRender.setColumns(cols.map(function (col, c) {
-            c = _this.colsFromServer.findIndex(function (srvCol) { return srvCol.name == col.name; });
-            return {
-                name: col.name,
-                render: function (args) {
-                    return React.createElement("div", null, args.item[c]);
-                },
-                renderHeader: function (jsx, col) {
-                    return (React.createElement("div", null, jsx));
-                }
-            };
-        }));
-        this.tableRender.reload();
-    };
-    return DrillDownTable;
-}(drilldown_table_1.DrillDownTableBase));
-exports.DrillDownTable = DrillDownTable;
-//# sourceMappingURL=drilldown-table.js.map
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! bluebird */ "bluebird")))
 
 /***/ }),
@@ -1029,14 +219,8 @@ exports.DrillDownTable = DrillDownTable;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var layout_1 = __webpack_require__(/*! ./layout */ "../objio-layout/client/layout.js");
-var drilldown_table_1 = __webpack_require__(/*! ./drilldown-table */ "../objio-layout/client/drilldown-table.js");
-var category_filter_1 = __webpack_require__(/*! ./category-filter */ "../objio-layout/client/category-filter.js");
-var range_filter_1 = __webpack_require__(/*! ./range-filter */ "../objio-layout/client/range-filter.js");
 function getClasses() {
     return [
-        category_filter_1.CategoryFilter,
-        drilldown_table_1.DrillDownTable,
-        range_filter_1.RangeFilter,
         layout_1.DocLayout,
         layout_1.ObjectHolderBase
     ];
@@ -1235,146 +419,6 @@ exports.DocLayout = DocLayout;
 
 /***/ }),
 
-/***/ "../objio-layout/client/range-filter.js":
-/*!**********************************************!*\
-  !*** ../objio-layout/client/range-filter.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Promise) {
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var range_filter_1 = __webpack_require__(/*! ../base/range-filter */ "../objio-layout/base/range-filter.js");
-var prop_sheet_1 = __webpack_require__(/*! ts-react-ui/prop-sheet */ "../ts-react-ui/prop-sheet/index.js");
-var tabs_1 = __webpack_require__(/*! ts-react-ui/tabs */ "../ts-react-ui/tabs.js");
-var RangeFilter = /** @class */ (function (_super) {
-    __extends(RangeFilter, _super);
-    function RangeFilter(args) {
-        var _this = _super.call(this, args) || this;
-        _this.onLoad = function () {
-            _this.updateData();
-            return Promise.resolve();
-        };
-        _this.onCreate = function () {
-            _this.updateData();
-            return Promise.resolve();
-        };
-        _this.onChange = function () {
-            _this.updateData();
-        };
-        _this.holder.addEventHandler({
-            onLoad: _this.onLoad,
-            onCreate: _this.onCreate,
-            onObjChange: _this.onChange
-        });
-        return _this;
-    }
-    RangeFilter.prototype.setColumn = function (column) {
-        if (!_super.prototype.setColumn.call(this, column))
-            return false;
-        this.updateData();
-        return true;
-    };
-    RangeFilter.prototype.getMinMaxRange = function () {
-        return this.minMaxRange;
-    };
-    RangeFilter.prototype.getRange = function () {
-        return this.range;
-    };
-    RangeFilter.prototype.setRange = function (range) {
-        var newRange = __assign({}, this.range, range);
-        if (this.range.min == newRange.min && this.range.max == newRange.max)
-            return false;
-        if (range.min == null) {
-            newRange.max = Math.min(this.minMaxRange.max, range.max);
-            newRange.max = Math.max(this.range.min, newRange.max);
-        }
-        else if (range.max == null) {
-            newRange.min = Math.max(this.minMaxRange.min, range.min);
-            newRange.min = Math.min(this.range.max, newRange.min);
-        }
-        if (newRange.min == this.range.min && newRange.max == this.range.max)
-            return false;
-        this.range = __assign({}, newRange);
-        this.holder.delayedNotify();
-        return true;
-    };
-    RangeFilter.prototype.onUpdateCondition = function (cond) {
-        this.cond = cond;
-        this.updateData();
-    };
-    RangeFilter.prototype.getProps = function () {
-        var _this = this;
-        return (React.createElement(prop_sheet_1.PropsGroup, { label: 'table', key: this.holder.getID() },
-            React.createElement(tabs_1.Tabs, { defaultSelect: 'data' },
-                React.createElement(tabs_1.Tab, { id: 'data', label: 'data' },
-                    React.createElement(prop_sheet_1.DropDownPropItem, { label: 'column', value: this.column ? { value: this.column } : null, values: this.obj.getAllColumns()
-                            .filter(function (col) { return ['integer', 'real'].indexOf(col.type.toLowerCase()) != -1; })
-                            .map(function (col) {
-                            return {
-                                value: col.name
-                            };
-                        }), onSelect: function (value) { return _this.setColumn(value.value); } }),
-                    React.createElement(prop_sheet_1.PropItem, { label: 'min ; max', disabled: !this.minMaxRange, value: this.minMaxRange ? [this.minMaxRange.min, this.minMaxRange.max].join(' ; ') : '' }),
-                    React.createElement(prop_sheet_1.TextPropItem, { label: 'minimal', disabled: !this.range, value: this.range ? this.range.min : '', onChanged: function (value) {
-                            if (!_this.setRange({ min: +value }))
-                                _this.holder.delayedNotify();
-                        } }),
-                    React.createElement(prop_sheet_1.TextPropItem, { label: 'maximal', disabled: !this.range, value: this.range ? this.range.max : '', onChanged: function (value) {
-                            if (!_this.setRange({ max: +value }))
-                                _this.holder.delayedNotify();
-                        } })))));
-    };
-    RangeFilter.prototype.updateData = function () {
-        var _this = this;
-        if (!this.column)
-            return;
-        var task = this.obj.getTableRef().createSubtable({
-            filter: this.cond
-        }).then(function (res) {
-            return (_this.obj.getTableRef().getNumStats({ column: _this.column, table: res.subtable })
-                .then(function (res) {
-                _this.minMaxRange = __assign({}, res);
-                _this.range = __assign({}, res);
-                _this.holder.delayedNotify();
-            }));
-        });
-        this.watchTask(task);
-    };
-    return RangeFilter;
-}(range_filter_1.RangeFilterBase));
-exports.RangeFilter = RangeFilter;
-//# sourceMappingURL=range-filter.js.map
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! bluebird */ "bluebird")))
-
-/***/ }),
-
 /***/ "../objio-layout/images/layout.png":
 /*!*****************************************!*\
   !*** ../objio-layout/images/layout.png ***!
@@ -1383,66 +427,6 @@ exports.RangeFilter = RangeFilter;
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOrQAADq0BDu+AZwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANASURBVEiJxZVfaFtlGMZ/55wv57RJE85pMvtnVsqQQVWcE3q1glNwkhZmVdBuY4WIndhOSoe0CoPgqBtBzMCV+acIrThws8pcb+ZVL3a1KWp1GjYYztF00xXTpc05SZOT48VG22MTw7DD5/L9Hp7fy3e+875SOBwOaIrycb5Y3JkvFKpZB3mEsFRZ/tqW5X1Ck+XRrc3Nz+5ta9N8mrYe+WRyuepPz5177sdr1xypo73dPNbdXV0q/K90mgXLqhjo1TQ26Po/Ibw+Pm6KfKFQMvzomUmOf/Ul/prAqqpDJn0Lr9/r8poZi64ntvN2JLJc82kaedv2inJdfTAxwbvnExj1jcs1Oz1PZHMdQ9OfuLz5TI5Yaw9v7dlDlaq6zuRyANOy8NeGyh27pHo1VI8HK5dbc1YWsF4qe0WOU2R8dweyvNJD0bbR/TV8s+99l1fCwbbtuwNIksSLu55ECMVV383TJf3fn5++WwC80N2BqnrKWVwa6D9csv7/fYOQrvPdhZ956OEHK4Zcn/2Tgm1TU7120pQFxHpf45WuQebTixUBPm8V77zag0esjSsL2PHY4+wYOV4xvJIEwC8zM/856F8BZxOJewuI9fXdk/BnBgZWnml0ZIS5VAqAM1NTfDY5ye+zs7wZjwMwdvo0z/f38/LBg9xaWOBqMsl7Y2MA7B8eBmAoHmdnXx890ShXk0lg1X/w0+XL5JaWbpO3bePDkyfZPzzMS+Ew6cVFPjp1ii/icba3tnLsxAkWTZNfr1wB4NuLFwGIHTiAmc0SHxykeeNGN2C1NFXljUiEkGGwtaWFVDrNfbW1KIrC/fX1zM3P4xFief5IklT2mlzP9PDoKH6vl2hvL0FdJ2QYADzQ0ICiKPQfOcIPiQRHh4Zoamhg+tIlBmKxZV8pSR3t7cXPDx2SMqZJ5s56bG5sZCmfJ2NZBO+sQsdx+C2ZZINh4Pf5ADCzWWZu3GBTUxNCuT0Ur9+8SV0wSCabZVc06iiPtLR0JefmQm1btlAXDGIEAkiShBACb1XVSieShBEIoK3aWB4hCOq6a6T7fT4y2SwjExP8kUolpM7OTh3HmSoUCo8u5fPrMvxUj6coFGUaWX7qb0XTFEyiERmWAAAAAElFTkSuQmCC"
-
-/***/ }),
-
-/***/ "../objio-layout/view/_category-filter.scss":
-/*!**************************************************!*\
-  !*** ../objio-layout/view/_category-filter.scss ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../objio-client/node_modules/css-loader!../../objio-client/node_modules/sass-loader/lib/loader.js!./_category-filter.scss */ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../objio-layout/view/_category-filter.scss");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../objio-client/node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "../objio-layout/view/_drilldown-table.scss":
-/*!**************************************************!*\
-  !*** ../objio-layout/view/_drilldown-table.scss ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../objio-client/node_modules/css-loader!../../objio-client/node_modules/sass-loader/lib/loader.js!./_drilldown-table.scss */ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../objio-layout/view/_drilldown-table.scss");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../objio-client/node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
 
 /***/ }),
 
@@ -1476,184 +460,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "../objio-layout/view/_range-filter.scss":
-/*!***********************************************!*\
-  !*** ../objio-layout/view/_range-filter.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../objio-client/node_modules/css-loader!../../objio-client/node_modules/sass-loader/lib/loader.js!./_range-filter.scss */ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../objio-layout/view/_range-filter.scss");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../objio-client/node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "../objio-layout/view/category-filter.js":
-/*!***********************************************!*\
-  !*** ../objio-layout/view/category-filter.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-__webpack_require__(/*! ./_category-filter.scss */ "../objio-layout/view/_category-filter.scss");
-var category_filter_1 = __webpack_require__(/*! ../client/category-filter */ "../objio-layout/client/category-filter.js");
-exports.CategoryFilter = category_filter_1.CategoryFilter;
-var drop_down_loadable_1 = __webpack_require__(/*! ts-react-ui/drop-down-loadable */ "../ts-react-ui/drop-down-loadable.js");
-var classes = {
-    filter: 'category-filter',
-    item: 'category-item',
-    itemWrap: 'category-item-wrap'
-};
-var CategoryFilterView = /** @class */ (function (_super) {
-    __extends(CategoryFilterView, _super);
-    function CategoryFilterView() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.subscriber = function () {
-            _this.setState({});
-        };
-        _this.onLoadNext = function (from, count) {
-            return _this.props.model.loadNext(from, count);
-        };
-        return _this;
-    }
-    CategoryFilterView.prototype.componentDidMount = function () {
-        this.props.model.holder.subscribe(this.subscriber);
-    };
-    CategoryFilterView.prototype.componentWillUnmount = function () {
-        this.props.model.holder.unsubscribe(this.subscriber);
-    };
-    CategoryFilterView.prototype.renderData = function () {
-        var model = this.props.model;
-        var table = model.getObject();
-        if (!table.isStatusValid()) {
-            return React.createElement("div", null,
-                "in progress: ",
-                table.getProgress());
-        }
-        var value = model.getSelect();
-        return (React.createElement("div", { style: { display: 'flex', alignItems: 'center', padding: 5 } },
-            React.createElement("i", { className: 'fa fa-undo', style: { flexGrow: 0, cursor: 'pointer', marginLeft: 5, marginRight: 5 }, onClick: function () {
-                    model.setSelect(null);
-                } }),
-            React.createElement(drop_down_loadable_1.DropDownLoadable, { disabled: !model.getColumn(), style: { flexGrow: 1 }, model: model.getListModel(), totalValues: function () { return model.getRowsNum(); }, onLoadNext: this.onLoadNext, onSelect: function (value) {
-                    model.setSelect(value.value);
-                }, onFilter: function (filter) {
-                    return model.filter(filter);
-                }, value: value ? { value: value } : { value: '-- nothing --' } })));
-    };
-    CategoryFilterView.prototype.render = function () {
-        return (React.createElement("div", { className: classes.filter }, this.renderData()));
-    };
-    return CategoryFilterView;
-}(React.Component));
-exports.CategoryFilterView = CategoryFilterView;
-//# sourceMappingURL=category-filter.js.map
-
-/***/ }),
-
-/***/ "../objio-layout/view/drilldown-table.js":
-/*!***********************************************!*\
-  !*** ../objio-layout/view/drilldown-table.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var list_1 = __webpack_require__(/*! ts-react-ui/list */ "../ts-react-ui/list.js");
-var fittoparent_1 = __webpack_require__(/*! ts-react-ui/fittoparent */ "../ts-react-ui/fittoparent.js");
-var drilldown_table_1 = __webpack_require__(/*! ../client/drilldown-table */ "../objio-layout/client/drilldown-table.js");
-exports.DrillDownTable = drilldown_table_1.DrillDownTable;
-__webpack_require__(/*! ./_drilldown-table.scss */ "../objio-layout/view/_drilldown-table.scss");
-var classes = {
-    class: 'drilldown-table'
-};
-var DrillDownTableView = /** @class */ (function (_super) {
-    __extends(DrillDownTableView, _super);
-    function DrillDownTableView() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.subscriber = function () {
-            _this.setState({});
-        };
-        return _this;
-    }
-    DrillDownTableView.prototype.componentDidMount = function () {
-        this.props.model.holder.subscribe(this.subscriber);
-    };
-    DrillDownTableView.prototype.componentWillUnmount = function () {
-        this.props.model.holder.unsubscribe(this.subscriber);
-    };
-    DrillDownTableView.prototype.renderData = function () {
-        var model = this.props.model;
-        var obj = model.getObject();
-        if (!obj.isStatusValid()) {
-            return React.createElement(React.Fragment, null,
-                "in progress: ",
-                obj.getProgress());
-        }
-        return (React.createElement(fittoparent_1.FitToParent, { wrapToFlex: true },
-            React.createElement(list_1.List, { border: true, model: model.getTableRender() })));
-    };
-    DrillDownTableView.prototype.render = function () {
-        return (React.createElement("div", { className: classes.class }, this.renderData()));
-    };
-    return DrillDownTableView;
-}(React.Component));
-exports.DrillDownTableView = DrillDownTableView;
-//# sourceMappingURL=drilldown-table.js.map
-
-/***/ }),
-
 /***/ "../objio-layout/view/index.js":
 /*!*************************************!*\
   !*** ../objio-layout/view/index.js ***!
@@ -1677,17 +483,23 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "react");
 var config_1 = __webpack_require__(/*! objio-object/view/config */ "../objio-object/view/config.js");
-var doc_table_1 = __webpack_require__(/*! objio-object/client/database/doc-table */ "../objio-object/client/database/doc-table.js");
-var table2_1 = __webpack_require__(/*! objio-object/client/database/table2 */ "../objio-object/client/database/table2.js");
+var database_table_1 = __webpack_require__(/*! objio-object/client/database/database-table */ "../objio-object/client/database/database-table.js");
 var file_object_1 = __webpack_require__(/*! objio-object/client/file-object */ "../objio-object/client/file-object.js");
 var video_file_object_1 = __webpack_require__(/*! objio-object/client/video-file-object */ "../objio-object/client/video-file-object.js");
-var drilldown_table_1 = __webpack_require__(/*! ./drilldown-table */ "../objio-layout/view/drilldown-table.js");
 var layout_1 = __webpack_require__(/*! ./layout */ "../objio-layout/view/layout.js");
-var category_filter_1 = __webpack_require__(/*! ./category-filter */ "../objio-layout/view/category-filter.js");
-var range_filter_1 = __webpack_require__(/*! ./range-filter */ "../objio-layout/view/range-filter.js");
 var icon_1 = __webpack_require__(/*! ts-react-ui/icon */ "../ts-react-ui/icon.js");
 __webpack_require__(/*! ts-react-ui/typings */ "react");
 var LayoutIcon = __webpack_require__(/*! ../images/layout.png */ "../objio-layout/images/layout.png");
+function getObjectsToCreate() {
+    return [
+        {
+            name: 'layout',
+            desc: 'object to layout views',
+            create: function () { return new layout_1.DocLayout(); }
+        }
+    ];
+}
+exports.getObjectsToCreate = getObjectsToCreate;
 function initDocLayout(mvf) {
     var lvf = layout_1.DocLayout.getViewFactory();
     lvf.register({
@@ -1702,12 +514,12 @@ function initDocLayout(mvf) {
         }
     });
     lvf.register({
-        classObj: table2_1.Table2,
+        classObj: database_table_1.DatabaseTable,
         createObject: function (args) { return new layout_1.ObjectHolderBase(args); },
         viewType: 'content',
         view: function (props) {
             return mvf.getView({
-                classObj: table2_1.Table2,
+                classObj: database_table_1.DatabaseTable,
                 props: { model: props.model.getObject() }
             });
         }
@@ -1722,24 +534,6 @@ function initDocLayout(mvf) {
                 props: { model: props.model.getObject(), onlyContent: true }
             });
         }
-    });
-    lvf.register({
-        classObj: doc_table_1.DocTable,
-        createObject: function (args) { return new drilldown_table_1.DrillDownTable(args); },
-        viewType: 'drilldown-table',
-        view: function (props) { return (React.createElement(drilldown_table_1.DrillDownTableView, { model: props.model })); }
-    });
-    lvf.register({
-        classObj: doc_table_1.DocTable,
-        createObject: function (args) { return new category_filter_1.CategoryFilter(args); },
-        viewType: 'category-filter',
-        view: function (props) { return (React.createElement(category_filter_1.CategoryFilterView, { model: props.model })); }
-    });
-    lvf.register({
-        classObj: doc_table_1.DocTable,
-        createObject: function (args) { return new range_filter_1.RangeFilter(args); },
-        viewType: 'range-filter',
-        view: function (props) { return (React.createElement(range_filter_1.RangeFilterView, { model: props.model })); }
     });
 }
 exports.initDocLayout = initDocLayout;
@@ -1900,10 +694,10 @@ exports.ObjHolderView = ObjHolderView;
 
 /***/ }),
 
-/***/ "../objio-layout/view/range-filter.js":
-/*!********************************************!*\
-  !*** ../objio-layout/view/range-filter.js ***!
-  \********************************************/
+/***/ "../objio-mysql-database/base/database.js":
+/*!************************************************!*\
+  !*** ../objio-mysql-database/base/database.js ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1923,86 +717,17 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var range_filter_1 = __webpack_require__(/*! ../client/range-filter */ "../objio-layout/client/range-filter.js");
-exports.RangeFilter = range_filter_1.RangeFilter;
-var range_slider_1 = __webpack_require__(/*! ts-react-ui/range-slider */ "../ts-react-ui/range-slider.js");
-__webpack_require__(/*! ./_range-filter.scss */ "../objio-layout/view/_range-filter.scss");
-var classes = {
-    rangeFilter: 'range-filter',
-    label: 'range-filter-label',
-    ctrl: 'range-filter-ctrl'
-};
-var RangeFilterView = /** @class */ (function (_super) {
-    __extends(RangeFilterView, _super);
-    function RangeFilterView() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.subscriber = function () {
-            _this.setState({});
-        };
-        return _this;
-    }
-    RangeFilterView.prototype.componentDidMount = function () {
-        this.props.model.holder.subscribe(this.subscriber);
-    };
-    RangeFilterView.prototype.componentWillUnmount = function () {
-        this.props.model.holder.unsubscribe(this.subscriber);
-    };
-    RangeFilterView.prototype.render = function () {
-        var _this = this;
-        var range = this.props.model.getRange();
-        var minMax = this.props.model.getMinMaxRange();
-        if (!minMax || !range)
-            return null;
-        return (React.createElement("div", { className: classes.rangeFilter },
-            React.createElement("div", { className: classes.label }, range.min),
-            React.createElement("div", { className: classes.ctrl },
-                React.createElement(range_slider_1.RangeSlider, { min: minMax.min, max: minMax.max, range: [range.min, range.max], onChanged: function (min, max) {
-                        _this.props.model.setRange({ min: min, max: max });
-                    } })),
-            React.createElement("div", { className: classes.label }, range.max)));
-    };
-    return RangeFilterView;
-}(React.Component));
-exports.RangeFilterView = RangeFilterView;
-//# sourceMappingURL=range-filter.js.map
-
-/***/ }),
-
-/***/ "../objio-mysql-database/base/database2.js":
-/*!*************************************************!*\
-  !*** ../objio-mysql-database/base/database2.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var database_holder_1 = __webpack_require__(/*! objio-object/base/database-holder */ "../objio-object/base/database-holder.js");
+var database_1 = __webpack_require__(/*! objio-object/base/database/database */ "../objio-object/base/database/database.js");
 var DatabaseBase = /** @class */ (function (_super) {
     __extends(DatabaseBase, _super);
     function DatabaseBase() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    DatabaseBase.TYPE_ID = 'MySQLDatabase2';
+    DatabaseBase.TYPE_ID = 'MYSQL-DATABASE';
     return DatabaseBase;
-}(database_holder_1.DatabaseBase2));
+}(database_1.RemoteDatabaseBase));
 exports.DatabaseBase = DatabaseBase;
-//# sourceMappingURL=database2.js.map
+//# sourceMappingURL=database.js.map
 
 /***/ }),
 
@@ -2066,102 +791,22 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var database_1 = __webpack_require__(/*! objio-object/client/database */ "../objio-object/client/database/index.js");
+var database_1 = __webpack_require__(/*! objio-object/base/database/database */ "../objio-object/base/database/database.js");
+var database_2 = __webpack_require__(/*! ../base/database */ "../objio-mysql-database/base/database.js");
+var connection_1 = __webpack_require__(/*! ./connection */ "../objio-mysql-database/client/connection.js");
 var Database = /** @class */ (function (_super) {
     __extends(Database, _super);
     function Database() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Database.prototype.getConnection = function () {
-        return this.connection;
-    };
-    Database.TYPE_ID = 'MySQLDatabase';
-    return Database;
-}(database_1.RemoteDatabase));
-exports.Database = Database;
-//# sourceMappingURL=database.js.map
-
-/***/ }),
-
-/***/ "../objio-mysql-database/client/database2.js":
-/*!***************************************************!*\
-  !*** ../objio-mysql-database/client/database2.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var database2_1 = __webpack_require__(/*! ../base/database2 */ "../objio-mysql-database/base/database2.js");
-var connection_1 = __webpack_require__(/*! ./connection */ "../objio-mysql-database/client/connection.js");
-var Database2 = /** @class */ (function (_super) {
-    __extends(Database2, _super);
-    function Database2() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Database2.prototype.loadTableList = function () {
-        return this.holder.invokeMethod({ method: 'loadTableList', args: {} });
-    };
-    Database2.prototype.loadTableGuid = function (args) {
-        return this.holder.invokeMethod({ method: 'loadTableGuid', args: args });
-    };
-    Database2.prototype.loadTableRowsNum = function (args) {
-        return this.holder.invokeMethod({ method: 'loadTableRowsNum', args: args });
-    };
-    Database2.prototype.loadTableData = function (args) {
-        return this.holder.invokeMethod({ method: 'loadTableData', args: args });
-    };
-    Database2.prototype.createTable = function (args) {
-        return this.holder.invokeMethod({ method: 'createTable', args: args });
-    };
-    Database2.prototype.deleteTable = function (args) {
-        return this.holder.invokeMethod({ method: 'deleteTable', args: args });
-    };
-    Database2.prototype.pushData = function (args) {
-        return this.holder.invokeMethod({ method: 'pushData', args: args });
-    };
-    Database2.prototype.deleteData = function (args) {
-        return this.holder.invokeMethod({ method: 'deleteData', args: args });
-    };
-    Database2.prototype.updateData = function (args) {
-        return this.holder.invokeMethod({ method: 'updateData', args: args });
-    };
-    Database2.prototype.loadAggrData = function (args) {
-        return this.holder.invokeMethod({ method: 'loadAggrData', args: args });
-    };
-    Database2.prototype.getConnClasses = function () {
+    Database.prototype.getConnClasses = function () {
         return [connection_1.Connection];
     };
-    Database2.prototype.setConnection = function (args) {
-        return this.holder.invokeMethod({ method: 'setConnection', args: args });
-    };
-    Database2.prototype.setDatabase = function (database) {
-        return this.holder.invokeMethod({ method: 'setDatabase', args: { database: database } });
-    };
-    Database2.prototype.getDatabaseList = function () {
-        return this.holder.invokeMethod({ method: 'getDatabaseList', args: {} });
-    };
-    Database2.prototype.isRemote = function () {
-        return true;
-    };
-    return Database2;
-}(database2_1.DatabaseBase));
-exports.Database2 = Database2;
-//# sourceMappingURL=database2.js.map
+    Database.TYPE_ID = database_2.DatabaseBase.TYPE_ID;
+    return Database;
+}(database_1.RemoteDatabaseClient));
+exports.Database = Database;
+//# sourceMappingURL=database.js.map
 
 /***/ }),
 
@@ -2175,13 +820,11 @@ exports.Database2 = Database2;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var database_1 = __webpack_require__(/*! ./database */ "../objio-mysql-database/client/database.js");
 var connection_1 = __webpack_require__(/*! ./connection */ "../objio-mysql-database/client/connection.js");
-var database2_1 = __webpack_require__(/*! ./database2 */ "../objio-mysql-database/client/database2.js");
+var database_1 = __webpack_require__(/*! ./database */ "../objio-mysql-database/client/database.js");
 function getClasses() {
     return [
         database_1.Database,
-        database2_1.Database2,
         connection_1.Connection
     ];
 }
@@ -2212,136 +855,6 @@ module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQi
 
 /***/ }),
 
-/***/ "../objio-mysql-database/view/database-view.js":
-/*!*****************************************************!*\
-  !*** ../objio-mysql-database/view/database-view.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var config_1 = __webpack_require__(/*! objio-object/view/config */ "../objio-object/view/config.js");
-var database_1 = __webpack_require__(/*! ../client/database */ "../objio-mysql-database/client/database.js");
-exports.Database = database_1.Database;
-var connection_1 = __webpack_require__(/*! ../client/connection */ "../objio-mysql-database/client/connection.js");
-var prop_sheet_1 = __webpack_require__(/*! ts-react-ui/prop-sheet */ "../ts-react-ui/prop-sheet/index.js");
-var DatabaseView = /** @class */ (function (_super) {
-    __extends(DatabaseView, _super);
-    function DatabaseView() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.subscriber = function () {
-            _this.setState({});
-        };
-        return _this;
-    }
-    DatabaseView.prototype.componentDidMount = function () {
-        this.props.model.holder.subscribe(this.subscriber);
-    };
-    DatabaseView.prototype.componentWillUnmount = function () {
-        this.props.model.holder.unsubscribe(this.subscriber);
-    };
-    DatabaseView.prototype.getServer = function () {
-        var conn = this.props.model.getConnection();
-        return conn.getUser() + "@" + conn.getHost() + ":" + conn.getPort();
-    };
-    DatabaseView.prototype.getDatabase = function () {
-        return this.props.model.getDatabase();
-    };
-    DatabaseView.prototype.renderTable = function () {
-        /*const table = this.props.model.getTable();
-        if (!table.getTableName())
-          return;
-    
-        const objClass = OBJIOItem.getClass(table) as OBJIOItemClassViewable;
-        const views = objClass.getViewDesc();
-        return (
-          views.views[0].view({ model: table })
-        );*/
-        return null;
-    };
-    DatabaseView.prototype.render = function () {
-        return (React.createElement("div", { style: { display: 'flex', flexGrow: 1, flexDirection: 'column' } },
-            React.createElement("div", { style: { flexGrow: 0 } },
-                React.createElement("div", null,
-                    "server: ",
-                    this.getServer()),
-                React.createElement("div", null,
-                    "database: ",
-                    this.getDatabase()),
-                React.createElement("div", null,
-                    "tables (",
-                    this.props.model.getTables().length,
-                    ")"),
-                React.createElement("div", null, this.props.model.getTables().map(function (table, i) {
-                    return (React.createElement("div", { key: i, onClick: function () {
-                            /*this.props.model.getTable().setTableName(table.name)
-                            .then(() => {
-                              this.props.model.holder.notify();
-                            });*/
-                        } }, table.name));
-                }))),
-            React.createElement("div", { style: { display: 'flex', flexGrow: 1 } }, this.renderTable())));
-    };
-    return DatabaseView;
-}(React.Component));
-exports.DatabaseView = DatabaseView;
-var DatabaseConfig = /** @class */ (function (_super) {
-    __extends(DatabaseConfig, _super);
-    function DatabaseConfig() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    DatabaseConfig.prototype.getAvailableConnects = function () {
-        return (this.props.objects()
-            .filter(function (obj) { return obj instanceof connection_1.Connection; })
-            .map(function (obj) { return obj; }));
-    };
-    DatabaseConfig.prototype.componentDidMount = function () {
-        var lst = this.getAvailableConnects();
-        if (!lst.length)
-            return;
-        this.config.connection = lst[0];
-        this.config.database = 'test';
-    };
-    DatabaseConfig.prototype.render = function () {
-        var _this = this;
-        return (React.createElement(prop_sheet_1.PropsGroup, { label: 'database' },
-            React.createElement(prop_sheet_1.DropDownPropItem, { value: this.config.connection && { value: this.config.connection.holder.getID() }, values: this.getAvailableConnects().map(function (conn) {
-                    return {
-                        value: conn.holder.getID(),
-                        render: conn.getName(),
-                        title: '?',
-                        conn: conn
-                    };
-                }), onSelect: function (conn) {
-                    _this.config.connection = conn['conn'];
-                } }),
-            React.createElement(prop_sheet_1.TextPropItem, { value: this.config.database, onEnter: function (database) {
-                    _this.config.database = database;
-                } })));
-    };
-    return DatabaseConfig;
-}(config_1.ConfigBase));
-exports.DatabaseConfig = DatabaseConfig;
-//# sourceMappingURL=database-view.js.map
-
-/***/ }),
-
 /***/ "../objio-mysql-database/view/index.js":
 /*!*********************************************!*\
   !*** ../objio-mysql-database/view/index.js ***!
@@ -2365,7 +878,6 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "react");
 var config_1 = __webpack_require__(/*! objio-object/view/config */ "../objio-object/view/config.js");
-var database_view_1 = __webpack_require__(/*! ./database-view */ "../objio-mysql-database/view/database-view.js");
 var connection_view_1 = __webpack_require__(/*! objio-object/view/connection-view */ "../objio-object/view/connection-view.js");
 var connection_1 = __webpack_require__(/*! ../client/connection */ "../objio-mysql-database/client/connection.js");
 __webpack_require__(/*! ts-react-ui/typings */ "react");
@@ -2373,13 +885,14 @@ var icon_1 = __webpack_require__(/*! ts-react-ui/icon */ "../ts-react-ui/icon.js
 var ConnIcon = __webpack_require__(/*! ../images/mysql-connection.svg */ "../objio-mysql-database/images/mysql-connection.svg");
 var DBIcon = __webpack_require__(/*! ../images/mysql-database.svg */ "../objio-mysql-database/images/mysql-database.svg");
 var database_holder_1 = __webpack_require__(/*! objio-object/client/database/database-holder */ "../objio-object/client/database/database-holder.js");
-var database2_1 = __webpack_require__(/*! ../client/database2 */ "../objio-mysql-database/client/database2.js");
+var database_1 = __webpack_require__(/*! ../client/database */ "../objio-mysql-database/client/database.js");
 function getObjectsToCreate() {
     return [
         {
             name: 'mysql',
             desc: 'mysql database',
-            create: function () { return new database_holder_1.DatabaseHolder({ impl: new database2_1.Database2() }); }
+            icon: React.createElement(icon_1.Icon, { src: DBIcon }),
+            create: function () { return new database_holder_1.DatabaseHolder({ impl: new database_1.Database() }); }
         }, {
             name: 'mysql connection',
             desc: 'mysql connection',
@@ -2389,17 +902,6 @@ function getObjectsToCreate() {
 }
 exports.getObjectsToCreate = getObjectsToCreate;
 function getViews() {
-    config_1.registerViews({
-        classObj: database_view_1.Database,
-        views: [{
-                view: function (props) { return React.createElement(database_view_1.DatabaseView, __assign({}, props)); }
-            }],
-        config: function (props) { return React.createElement(database_view_1.DatabaseConfig, __assign({}, props)); },
-        flags: ['create-wizard'],
-        sources: [[connection_1.Connection]],
-        desc: 'Mysql database',
-        icons: { item: React.createElement(icon_1.Icon, { src: DBIcon }) }
-    });
     config_1.registerViews({
         classObj: connection_1.Connection,
         views: [{
@@ -2411,112 +913,11 @@ function getViews() {
         icons: { item: React.createElement(icon_1.Icon, { src: ConnIcon }) }
     });
     return [
-        database_view_1.Database,
         connection_1.Connection
     ];
 }
 exports.getViews = getViews;
 //# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ "../objio-object/base/database-holder.js":
-/*!***********************************************!*\
-  !*** ../objio-object/base/database-holder.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var object_base_1 = __webpack_require__(/*! ./object-base */ "../objio-object/base/object-base.js");
-var DatabaseBase2 = /** @class */ (function (_super) {
-    __extends(DatabaseBase2, _super);
-    function DatabaseBase2() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    DatabaseBase2.prototype.getConnection = function () {
-        return this.conn;
-    };
-    DatabaseBase2.prototype.getDatabase = function () {
-        return this.database;
-    };
-    DatabaseBase2.TYPE_ID = 'Database2'; // It must be overridden in implementation
-    DatabaseBase2.SERIALIZE = function () { return (__assign({}, object_base_1.ObjectBase.SERIALIZE(), { conn: { type: 'object', const: true }, database: { type: 'string', const: true } })); };
-    return DatabaseBase2;
-}(object_base_1.ObjectBase));
-exports.DatabaseBase2 = DatabaseBase2;
-var DatabaseHolderBase = /** @class */ (function (_super) {
-    __extends(DatabaseHolderBase, _super);
-    function DatabaseHolderBase(args) {
-        var _this = _super.call(this) || this;
-        _this.impl = null;
-        if (args) {
-            _this.impl = args.impl;
-        }
-        return _this;
-    }
-    DatabaseHolderBase.prototype.loadTableList = function () {
-        return this.impl.loadTableList();
-    };
-    DatabaseHolderBase.prototype.loadTableGuid = function (args) {
-        return this.impl.loadTableGuid(args);
-    };
-    DatabaseHolderBase.prototype.loadTableRowsNum = function (args) {
-        return this.impl.loadTableRowsNum(args);
-    };
-    DatabaseHolderBase.prototype.loadTableData = function (args) {
-        return this.impl.loadTableData(args);
-    };
-    DatabaseHolderBase.prototype.loadAggrData = function (args) {
-        return this.impl.loadAggrData(args);
-    };
-    DatabaseHolderBase.prototype.getDatabaseList = function () {
-        return this.impl.getDatabaseList();
-    };
-    DatabaseHolderBase.prototype.isRemote = function () {
-        return this.impl.isRemote();
-    };
-    DatabaseHolderBase.prototype.getConnClasses = function () {
-        return this.impl.getConnClasses();
-    };
-    DatabaseHolderBase.prototype.getConnection = function () {
-        return this.impl.getConnection();
-    };
-    DatabaseHolderBase.prototype.getDatabase = function () {
-        return this.impl.getDatabase();
-    };
-    DatabaseHolderBase.TYPE_ID = 'DatabaseHolder';
-    DatabaseHolderBase.SERIALIZE = function () { return (__assign({}, DatabaseBase2.SERIALIZE(), { impl: { type: 'object', const: true } })); };
-    return DatabaseHolderBase;
-}(DatabaseBase2));
-exports.DatabaseHolderBase = DatabaseHolderBase;
-//# sourceMappingURL=database-holder.js.map
 
 /***/ }),
 
@@ -2607,109 +1008,9 @@ exports.ConnectionBase = ConnectionBase;
 
 /***/ }),
 
-/***/ "../objio-object/base/database/database.js":
-/*!*************************************************!*\
-  !*** ../objio-object/base/database/database.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var object_base_1 = __webpack_require__(/*! ../object-base */ "../objio-object/base/object-base.js");
-var DatabaseBase = /** @class */ (function (_super) {
-    __extends(DatabaseBase, _super);
-    function DatabaseBase() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.tables = Array();
-        return _this;
-    }
-    DatabaseBase.TYPE_ID = 'Database';
-    DatabaseBase.SERIALIZE = function () { return (__assign({}, object_base_1.ObjectBase.SERIALIZE(), { 'tables': { type: 'json', const: true } })); };
-    return DatabaseBase;
-}(object_base_1.ObjectBase));
-exports.DatabaseBase = DatabaseBase;
-//# sourceMappingURL=database.js.map
-
-/***/ }),
-
-/***/ "../objio-object/base/database/doc-table.js":
-/*!**************************************************!*\
-  !*** ../objio-object/base/database/doc-table.js ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var object_base_1 = __webpack_require__(/*! ../object-base */ "../objio-object/base/object-base.js");
-var DocTableBase = /** @class */ (function (_super) {
-    __extends(DocTableBase, _super);
-    function DocTableBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    DocTableBase.TYPE_ID = 'DocTable';
-    DocTableBase.SERIALIZE = function () { return (__assign({}, object_base_1.ObjectBase.SERIALIZE(), { table: { type: 'object' } })); };
-    return DocTableBase;
-}(object_base_1.ObjectBase));
-exports.DocTableBase = DocTableBase;
-//# sourceMappingURL=doc-table.js.map
-
-/***/ }),
-
-/***/ "../objio-object/base/database/remote-database.js":
+/***/ "../objio-object/base/database/database-holder.js":
 /*!********************************************************!*\
-  !*** ../objio-object/base/database/remote-database.js ***!
+  !*** ../objio-object/base/database/database-holder.js ***!
   \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -2741,117 +1042,103 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var database_1 = __webpack_require__(/*! ./database */ "../objio-object/base/database/database.js");
-var RemoteDatabaseBase = /** @class */ (function (_super) {
-    __extends(RemoteDatabaseBase, _super);
-    function RemoteDatabaseBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    RemoteDatabaseBase.prototype.getDatabase = function () {
-        return this.database;
-    };
-    RemoteDatabaseBase.prototype.getTables = function () {
-        return this.tables;
-    };
-    RemoteDatabaseBase.TYPE_ID = 'RemoteDatabase';
-    RemoteDatabaseBase.SERIALIZE = function () { return (__assign({}, database_1.DatabaseBase.SERIALIZE(), { 'database': { type: 'string', const: true }, 'connection': { type: 'object', const: true } })); };
-    return RemoteDatabaseBase;
-}(database_1.DatabaseBase));
-exports.RemoteDatabaseBase = RemoteDatabaseBase;
-//# sourceMappingURL=remote-database.js.map
-
-/***/ }),
-
-/***/ "../objio-object/base/database/table.js":
-/*!**********************************************!*\
-  !*** ../objio-object/base/database/table.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
 var object_base_1 = __webpack_require__(/*! ../object-base */ "../objio-object/base/object-base.js");
-function inRange(idx, range) {
-    return idx >= range.first && idx < range.first + range.count;
-}
-exports.inRange = inRange;
-var TableBase = /** @class */ (function (_super) {
-    __extends(TableBase, _super);
-    function TableBase(args) {
+var database_1 = __webpack_require__(/*! ./database */ "../objio-object/base/database/database.js");
+var DatabaseHolderBase = /** @class */ (function (_super) {
+    __extends(DatabaseHolderBase, _super);
+    function DatabaseHolderBase(args) {
         var _this = _super.call(this) || this;
-        _this.columns = Array();
-        _this.idColumn = 'row_uid';
-        _this.lastExecuteTime = 0;
-        _this.totalRowsNum = 0;
-        if (args) {
-            _this.db = args.source;
-            _this.userIdColumn = args.userIdColumn;
-        }
+        if (args)
+            _this.impl = args.impl;
         return _this;
     }
-    TableBase.prototype.getDatabase = function () {
-        return this.db;
+    DatabaseHolderBase.prototype.isRemote = function () {
+        return this.impl instanceof database_1.RemoteDatabaseBase;
     };
-    TableBase.prototype.getLastExecuteTime = function () {
-        return this.lastExecuteTime;
+    DatabaseHolderBase.prototype.getRemote = function () {
+        if (this.impl instanceof database_1.RemoteDatabaseBase)
+            return this.impl;
+        throw "it is not a remote database";
     };
-    TableBase.prototype.getFileObjId = function () {
-        return this.fileObjId;
+    DatabaseHolderBase.prototype.getConnection = function () {
+        return this.getRemote().getConnection();
     };
-    TableBase.prototype.findColumn = function (name) {
-        return this.columns.find(function (col) { return col.name == name; });
+    DatabaseHolderBase.prototype.getDatabase = function () {
+        return this.getRemote().getDatabase();
     };
-    TableBase.prototype.getTotalRowsNum = function () {
-        return this.totalRowsNum;
+    DatabaseHolderBase.prototype.getConnClasses = function () {
+        return this.getRemote().getConnClasses();
     };
-    TableBase.prototype.getTable = function () {
-        return this.table;
-    };
-    TableBase.prototype.getColumns = function () {
-        return this.columns;
-    };
-    TableBase.prototype.getIdColumn = function () {
-        return this.idColumn;
-    };
-    TableBase.TYPE_ID = 'Table';
-    TableBase.SERIALIZE = function () { return (__assign({}, object_base_1.ObjectBase.SERIALIZE(), { 'table': { type: 'string' }, 'columns': { type: 'json' }, 'totalRowsNum': { type: 'integer' }, 'idColumn': { type: 'string' }, 'lastExecuteTime': { type: 'number' }, 'fileObjId': { type: 'string' }, 'db': { type: 'object' }, 'userIdColumn': { type: 'string', const: true } })); };
-    return TableBase;
+    DatabaseHolderBase.TYPE_ID = 'DatabaseHolder';
+    DatabaseHolderBase.SERIALIZE = function () { return (__assign({}, object_base_1.ObjectBase.SERIALIZE(), { impl: { type: 'object', const: true } })); };
+    return DatabaseHolderBase;
 }(object_base_1.ObjectBase));
-exports.TableBase = TableBase;
-//# sourceMappingURL=table.js.map
+exports.DatabaseHolderBase = DatabaseHolderBase;
+var DatabaseHolderClientBase = /** @class */ (function (_super) {
+    __extends(DatabaseHolderClientBase, _super);
+    function DatabaseHolderClientBase() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    DatabaseHolderClientBase.prototype.setConnection = function (conn) {
+        return this.holder.invokeMethod({ method: 'setConnection', args: conn });
+    };
+    DatabaseHolderClientBase.prototype.setDatabase = function (database) {
+        return this.holder.invokeMethod({ method: 'setDatabase', args: { database: database } });
+    };
+    DatabaseHolderClientBase.prototype.createDatabase = function (database) {
+        return this.holder.invokeMethod({ method: 'createDatabase', args: { database: database } });
+    };
+    DatabaseHolderClientBase.prototype.deleteDatabase = function (database) {
+        var remote = this.getRemote();
+        if (remote.getDatabase() == database)
+            remote.setDatabase('');
+        return this.holder.invokeMethod({ method: 'deleteDatabase', args: { database: database } });
+    };
+    DatabaseHolderClientBase.prototype.loadTableList = function () {
+        return this.holder.invokeMethod({ method: 'loadTableList', args: {} });
+    };
+    DatabaseHolderClientBase.prototype.loadTableRowsNum = function (args) {
+        return this.holder.invokeMethod({ method: 'loadTableRowsNum', args: args });
+    };
+    DatabaseHolderClientBase.prototype.loadTableGuid = function (args) {
+        return this.holder.invokeMethod({ method: 'loadTableGuid', args: args });
+    };
+    DatabaseHolderClientBase.prototype.loadTableData = function (args) {
+        return this.holder.invokeMethod({ method: 'loadTableData', args: args });
+    };
+    DatabaseHolderClientBase.prototype.loadAggrData = function (args) {
+        return this.holder.invokeMethod({ method: 'loadAggrData', args: args });
+    };
+    DatabaseHolderClientBase.prototype.loadDatabaseList = function () {
+        return this.holder.invokeMethod({ method: 'loadDatabaseList', args: {} });
+    };
+    DatabaseHolderClientBase.prototype.createTable = function (args) {
+        return this.holder.invokeMethod({ method: 'createTable', args: args });
+    };
+    DatabaseHolderClientBase.prototype.deleteTable = function (args) {
+        return this.holder.invokeMethod({ method: 'deleteTable', args: args });
+    };
+    DatabaseHolderClientBase.prototype.pushData = function (args) {
+        return this.holder.invokeMethod({ method: 'pushData', args: args });
+    };
+    DatabaseHolderClientBase.prototype.updateData = function (args) {
+        return this.holder.invokeMethod({ method: 'updateData', args: args });
+    };
+    DatabaseHolderClientBase.prototype.deleteData = function (args) {
+        return this.holder.invokeMethod({ method: 'deleteData', args: args });
+    };
+    DatabaseHolderClientBase.SERIALIZE = function () { return (__assign({}, DatabaseHolderBase.SERIALIZE())); };
+    return DatabaseHolderClientBase;
+}(DatabaseHolderBase));
+exports.DatabaseHolderClientBase = DatabaseHolderClientBase;
+//# sourceMappingURL=database-holder.js.map
 
 /***/ }),
 
-/***/ "../objio-object/base/database/table2.js":
-/*!***********************************************!*\
-  !*** ../objio-object/base/database/table2.js ***!
-  \***********************************************/
+/***/ "../objio-object/base/database/database-table.js":
+/*!*******************************************************!*\
+  !*** ../objio-object/base/database/database-table.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2884,25 +1171,188 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var object_base_1 = __webpack_require__(/*! ../object-base */ "../objio-object/base/object-base.js");
 exports.ObjectBase = object_base_1.ObjectBase;
-var database_holder_1 = __webpack_require__(/*! ../database-holder */ "../objio-object/base/database-holder.js");
+var database_holder_1 = __webpack_require__(/*! ./database-holder */ "../objio-object/base/database/database-holder.js");
 exports.DatabaseHolderBase = database_holder_1.DatabaseHolderBase;
-var TableBase = /** @class */ (function (_super) {
-    __extends(TableBase, _super);
-    function TableBase() {
+var DatabaseTableBase = /** @class */ (function (_super) {
+    __extends(DatabaseTableBase, _super);
+    function DatabaseTableBase() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    TableBase.prototype.getTableName = function () {
+    DatabaseTableBase.prototype.getTableName = function () {
         return this.tableName;
     };
-    TableBase.prototype.getDatabase = function () {
+    DatabaseTableBase.prototype.getDatabase = function () {
         return this.db;
     };
-    TableBase.TYPE_ID = 'Table2';
-    TableBase.SERIALIZE = function () { return (__assign({}, object_base_1.ObjectBase.SERIALIZE(), { db: { type: 'object', const: true }, tableName: { type: 'string', const: true }, tableFileId: { type: 'string', const: true } })); };
-    return TableBase;
+    DatabaseTableBase.TYPE_ID = 'DATABASE-TABLE';
+    DatabaseTableBase.SERIALIZE = function () { return (__assign({}, object_base_1.ObjectBase.SERIALIZE(), { db: { type: 'object', const: true }, tableName: { type: 'string', const: true }, tableFileId: { type: 'string', const: true } })); };
+    return DatabaseTableBase;
 }(object_base_1.ObjectBase));
-exports.TableBase = TableBase;
-//# sourceMappingURL=table2.js.map
+exports.DatabaseTableBase = DatabaseTableBase;
+//# sourceMappingURL=database-table.js.map
+
+/***/ }),
+
+/***/ "../objio-object/base/database/database.js":
+/*!*************************************************!*\
+  !*** ../objio-object/base/database/database.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(Promise) {
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var object_base_1 = __webpack_require__(/*! ../object-base */ "../objio-object/base/object-base.js");
+// DatabaseBase and RemoteDatabaseBase must be server side objects
+// DatabaseBaseClient and RemoteDatabaseClient must be used only as reference to server object
+var DatabaseBase = /** @class */ (function (_super) {
+    __extends(DatabaseBase, _super);
+    function DatabaseBase() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    DatabaseBase.TYPE_ID = null;
+    DatabaseBase.SERIALIZE = function () { return (__assign({}, object_base_1.ObjectBase.SERIALIZE())); };
+    return DatabaseBase;
+}(object_base_1.ObjectBase));
+exports.DatabaseBase = DatabaseBase;
+var RemoteDatabaseBase = /** @class */ (function (_super) {
+    __extends(RemoteDatabaseBase, _super);
+    function RemoteDatabaseBase() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    RemoteDatabaseBase.prototype.getConnection = function () {
+        return this.conn;
+    };
+    RemoteDatabaseBase.prototype.getDatabase = function () {
+        return this.database;
+    };
+    RemoteDatabaseBase.prototype.setDatabase = function (database) {
+        if (this.database == database)
+            return false;
+        this.database = database;
+        this.holder.save(true);
+        return true;
+    };
+    RemoteDatabaseBase.SERIALIZE = function () { return (__assign({}, DatabaseBase.SERIALIZE(), { conn: { type: 'object', const: true }, database: { type: 'string', const: true } })); };
+    return RemoteDatabaseBase;
+}(DatabaseBase));
+exports.RemoteDatabaseBase = RemoteDatabaseBase;
+// to avoid client calls
+var DatabaseBaseClient = /** @class */ (function (_super) {
+    __extends(DatabaseBaseClient, _super);
+    function DatabaseBaseClient() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    DatabaseBaseClient.prototype.loadTableList = function () {
+        return Promise.reject("not implemented");
+    };
+    DatabaseBaseClient.prototype.loadAggrData = function () {
+        return Promise.reject("not implemented");
+    };
+    DatabaseBaseClient.prototype.loadTableRowsNum = function () {
+        return Promise.reject("not implemented");
+    };
+    DatabaseBaseClient.prototype.loadTableData = function () {
+        return Promise.reject("not implemented");
+    };
+    DatabaseBaseClient.prototype.createTempTable = function () {
+        return Promise.reject("not implemented");
+    };
+    DatabaseBaseClient.prototype.createTable = function () {
+        return Promise.reject("not implemented");
+    };
+    DatabaseBaseClient.prototype.pushData = function () {
+        return Promise.reject("not implemented");
+    };
+    DatabaseBaseClient.prototype.updateData = function () {
+        return Promise.reject("not implemented");
+    };
+    DatabaseBaseClient.prototype.deleteData = function () {
+        return Promise.reject("not implemented");
+    };
+    DatabaseBaseClient.prototype.deleteTable = function () {
+        return Promise.reject("not implemented");
+    };
+    return DatabaseBaseClient;
+}(DatabaseBase));
+exports.DatabaseBaseClient = DatabaseBaseClient;
+var RemoteDatabaseClient = /** @class */ (function (_super) {
+    __extends(RemoteDatabaseClient, _super);
+    function RemoteDatabaseClient() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    RemoteDatabaseClient.prototype.loadTableList = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.loadAggrData = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.loadTableRowsNum = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.loadTableData = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.createTempTable = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.createTable = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.pushData = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.updateData = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.deleteData = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.deleteTable = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.setConnection = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.deleteDatabase = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.createDatabase = function () {
+        return Promise.reject("not implemented");
+    };
+    RemoteDatabaseClient.prototype.loadDatabaseList = function () {
+        return Promise.reject("not implemented");
+    };
+    return RemoteDatabaseClient;
+}(RemoteDatabaseBase));
+exports.RemoteDatabaseClient = RemoteDatabaseClient;
+//# sourceMappingURL=database.js.map
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! bluebird */ "bluebird")))
 
 /***/ }),
 
@@ -3830,12 +2280,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "react");
-var database_holder_1 = __webpack_require__(/*! ../../base/database-holder */ "../objio-object/base/database-holder.js");
+var database_holder_1 = __webpack_require__(/*! ../../base/database/database-holder */ "../objio-object/base/database/database-holder.js");
 var prop_sheet_1 = __webpack_require__(/*! ts-react-ui/prop-sheet */ "../ts-react-ui/prop-sheet/index.js");
-var list_view_1 = __webpack_require__(/*! ts-react-ui/list-view */ "../ts-react-ui/list-view.js");
 var drop_down_1 = __webpack_require__(/*! ts-react-ui/drop-down */ "../ts-react-ui/drop-down.js");
 var forward_props_1 = __webpack_require__(/*! ts-react-ui/forward-props */ "../ts-react-ui/forward-props.js");
 var checkicon_1 = __webpack_require__(/*! ts-react-ui/checkicon */ "../ts-react-ui/checkicon.js");
+var prompt_1 = __webpack_require__(/*! ts-react-ui/prompt */ "../ts-react-ui/prompt.js");
 var grid_loadable_model_1 = __webpack_require__(/*! ts-react-ui/grid/grid-loadable-model */ "../ts-react-ui/grid/grid-loadable-model.js");
 var DatabaseHolder = /** @class */ (function (_super) {
     __extends(DatabaseHolder, _super);
@@ -3843,15 +2293,11 @@ var DatabaseHolder = /** @class */ (function (_super) {
         var _this = _super.call(this, args) || this;
         _this.dbList = [];
         _this.tables = null;
-        _this.renderHeader = function (props) {
-            return (React.createElement("div", { className: 'horz-panel-1' },
-                React.createElement("span", null, props.value),
-                React.createElement(checkicon_1.CheckIcon, { faIcon: 'fa fa-thumbs-o-up', value: true })));
-        };
         _this.holder.addEventHandler({
             onObjChange: function () {
                 _this.updateDBList();
                 _this.updateTables();
+                _this.holder.delayedNotify();
             },
             onLoad: function () {
                 _this.updateDBList();
@@ -3863,32 +2309,11 @@ var DatabaseHolder = /** @class */ (function (_super) {
     DatabaseHolder.prototype.getGrid = function () {
         return this.grid;
     };
-    DatabaseHolder.prototype.deleteTable = function (args) {
-        return this.holder.invokeMethod({ method: 'deleteTable', args: args });
-    };
-    DatabaseHolder.prototype.createTable = function (args) {
-        return this.holder.invokeMethod({ method: 'createTable', args: args });
-    };
-    DatabaseHolder.prototype.setDatabase = function (database) {
-        return this.holder.invokeMethod({ method: 'setDatabase', args: { database: database } });
-    };
-    DatabaseHolder.prototype.setConnection = function (args) {
-        return this.holder.invokeMethod({ method: 'setConnection', args: args });
-    };
-    DatabaseHolder.prototype.pushData = function (args) {
-        return this.holder.invokeMethod({ method: 'pushData', args: args });
-    };
-    DatabaseHolder.prototype.updateData = function (args) {
-        return this.holder.invokeMethod({ method: 'updateData', args: args });
-    };
-    DatabaseHolder.prototype.deleteData = function (args) {
-        return this.holder.invokeMethod({ method: 'deleteData', args: args });
-    };
     DatabaseHolder.prototype.updateDBList = function () {
         var _this = this;
         if (!this.isRemote())
             return;
-        this.getDatabaseList()
+        this.loadDatabaseList()
             .then(function (lst) {
             _this.dbList = lst;
             _this.holder.delayedNotify();
@@ -3896,48 +2321,40 @@ var DatabaseHolder = /** @class */ (function (_super) {
     };
     DatabaseHolder.prototype.updateTables = function () {
         var _this = this;
-        if (this.updateTask)
-            this.updateTask.cancel();
-        this.updateTask = (this.impl.loadTableList()
+        if (this.isRemote() && !this.getDatabase())
+            return;
+        if (this.updateTablesTask)
+            this.updateTablesTask.cancel();
+        this.updateTablesTask = (this.loadTableList()
             .then(function (tables) {
-            _this.updateTask = null;
+            _this.updateTablesTask = null;
             _this.tables = tables || [];
             if (_this.selectTable) {
                 _this.tables.find(function (table) {
-                    return table.tableName == _this.selectTable.tableName;
+                    return table.table == _this.selectTable.tableName;
                 });
             }
             _this.holder.delayedNotify();
+        })
+            .catch(function (err) {
+            _this.selectTable = null;
+            _this.tables = [];
+            _this.updateTablesTask = null;
+            _this.holder.delayedNotify();
         }));
-        return this.updateTask;
+        return this.updateTablesTask;
     };
     DatabaseHolder.prototype.getTableValues = function () {
         if (!this.tables) {
-            this.updateTask == null && this.updateTables();
+            this.updateTablesTask == null && this.updateTables();
             return [];
         }
         return (this.tables.map(function (table) {
             return {
                 title: "rows: " + table.rowsNum + "\ncolumns: " + table.columns.length,
-                value: table.tableName,
-                render: table.tableName,
+                value: table.table,
+                render: table.table,
                 table: table
-            };
-        }));
-    };
-    DatabaseHolder.prototype.getColumnValues = function () {
-        if (!this.selectTable)
-            return [];
-        return (this.selectTable.desc.columns.map(function (col, i) {
-            return {
-                value: '' + i,
-                title: col.colName,
-                render: function () {
-                    var shown = true;
-                    return (React.createElement("div", { className: 'horz-panel-1' },
-                        React.createElement(checkicon_1.CheckIcon, { faIcon: shown ? 'fa fa-check-square-o' : 'fa fa-square-o', value: true, showOnHover: true }),
-                        React.createElement("span", { style: { color: shown ? undefined : 'gray' } }, col.colName)));
-                }
             };
         }));
     };
@@ -3952,8 +2369,8 @@ var DatabaseHolder = /** @class */ (function (_super) {
         var db = this.getDatabase();
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: 'horz-panel-1 flexrow', style: { alignItems: 'center' } },
-                React.createElement("div", null, "connection:"),
-                React.createElement(drop_down_1.DropDown, { style: { flexGrow: 1 }, value: conn ? { value: conn.getID() } : null, values: props.objects(this.getConnClasses()).map(function (c) {
+                React.createElement("i", { className: 'fa fa-plug', title: 'connection', style: { width: '1em' } }),
+                React.createElement(drop_down_1.DropDown, { style: { flexGrow: 1 }, value: conn ? { value: conn.getID() } : drop_down_1.DropDown.NOTHING_SELECT, values: props.objects(this.getConnClasses()).map(function (c) {
                         return {
                             value: c.getID(),
                             render: c.getName()
@@ -3962,34 +2379,54 @@ var DatabaseHolder = /** @class */ (function (_super) {
                         _this.setConnection({ id: c.value });
                     } })),
             React.createElement("div", { className: 'horz-panel-1 flexrow', style: { alignItems: 'center' } },
-                React.createElement("div", null, "db:"),
-                React.createElement(drop_down_1.DropDown, { style: { flexGrow: 1 }, value: db ? { value: db } : null, values: this.dbList.map(function (db) {
+                React.createElement("i", { className: 'fa fa-database', title: 'database', style: { width: '1em' } }),
+                React.createElement(drop_down_1.DropDown, { disabled: !!this.updateTablesTask, style: { flexGrow: 1 }, value: db ? { value: db } : drop_down_1.DropDown.NOTHING_SELECT, values: this.dbList.map(function (db) {
                         return {
                             value: db
                         };
                     }), onSelect: function (db) {
                         _this.setDatabase(db.value);
+                        _this.setTable(null);
                         _this.tables = null;
                         _this.holder.delayedNotify();
+                    } }),
+                React.createElement(checkicon_1.CheckIcon, { title: 'Create new database', showOnHover: true, value: true, faIcon: 'fa fa-plus', onClick: function () {
+                        prompt_1.prompt({ title: 'Create new database', placeholder: 'database name' })
+                            .then(function (database) {
+                            _this.createDatabase(database)
+                                .then(function () {
+                                _this.tables = null;
+                                _this.setTable(null);
+                                _this.setDatabase(database);
+                            });
+                        });
+                    } }),
+                db && React.createElement(checkicon_1.CheckIcon, { title: 'Delete database', showOnHover: true, value: true, faIcon: 'fa fa-trash', onClick: function () {
+                        prompt_1.confirm({ text: "Are you sure to delete database \"" + db + "\" ?", intent: prompt_1.Intent.WARNING })
+                            .then(function () {
+                            _this.deleteDatabase(_this.getDatabase());
+                        });
                     } }))));
     };
     DatabaseHolder.prototype.setTable = function (tableName) {
         var _this = this;
-        var table = this.tables.find(function (item) { return item.tableName == tableName; });
-        // nothing changed
-        if (this.selectTable && this.selectTable.tableName == table.tableName)
+        if (!this.tables)
             return false;
+        var table = this.tables.find(function (item) { return item.table == tableName; });
         if (!table) {
             this.selectTable = null;
             this.holder.delayedNotify();
             return true;
         }
+        // nothing changed
+        if (this.selectTable && this.selectTable.tableName == table.table)
+            return false;
         this.selectTable = {
-            tableName: table.tableName,
+            tableName: table.table,
             guid: null,
             desc: table
         };
-        this.loadTableGuid({ tableName: table.tableName, desc: true })
+        this.loadTableGuid({ table: table.table, desc: true })
             .then(function (res) {
             _this.selectTable.guid = res.guid;
             _this.createGrid();
@@ -4026,430 +2463,37 @@ var DatabaseHolder = /** @class */ (function (_super) {
                     return (React.createElement("div", { className: 'vert-panel-1 flexcol flexgrow1', style: { height: props.height } },
                         _this.renderRemoteProps(objProps),
                         React.createElement("div", { className: 'horz-panel-1 flexrow', style: { alignItems: 'center' } },
-                            React.createElement("div", null, "table:"),
-                            React.createElement(drop_down_1.DropDown, { style: { flexGrow: 1 }, value: _this.selectTable ? { value: _this.selectTable.tableName } : null, values: _this.getTableValues(), onSelect: function (sel) {
+                            React.createElement("i", { className: _this.updateTablesTask ? 'fa fa-spinner fa-spin' : 'fa fa-table', title: 'table', style: { width: '1em' } }),
+                            React.createElement(drop_down_1.DropDown, { style: { flexGrow: 1 }, value: _this.selectTable ? { value: _this.selectTable.tableName } : drop_down_1.DropDown.NOTHING_SELECT, values: _this.getTableValues(), onSelect: function (sel) {
                                     _this.setTable(sel.value);
                                 } }),
-                            React.createElement(checkicon_1.CheckIcon, { showOnHover: true, value: _this.selectTable != null, faIcon: 'fa fa-remove', onClick: function () {
+                            _this.selectTable && React.createElement(checkicon_1.CheckIcon, { showOnHover: true, value: _this.selectTable != null, faIcon: 'fa fa-trash', onClick: function () {
                                     if (!_this.selectTable)
                                         return;
-                                    _this.deleteTable({ tableName: _this.selectTable.tableName })
+                                    prompt_1.confirm({
+                                        text: "Are you sure to delete table \"" + _this.selectTable.tableName + "\" ?",
+                                        intent: prompt_1.Intent.WARNING
+                                    })
+                                        .then(function () { return _this.deleteTable({ table: _this.selectTable.tableName }); })
                                         .then(function () {
                                         _this.selectTable = null;
                                         _this.holder.delayedNotify();
                                     });
-                                } })),
-                        React.createElement(list_view_1.ListView, { height: 0, style: { flexGrow: 1 }, border: false, header: { value: 'Column', render: _this.renderHeader }, values: _this.getColumnValues(), onMoveTo: function (args) {
-                                /*this.selectTable.changed = true;
-                                const srcIdx = +args.drag[0].value;
-                                if (args.before) {
-                                  const [drag] = this.selectTable.columns.splice(srcIdx, 1);
-                                  if (srcIdx >= +args.before.value)
-                                    this.selectTable.columns.splice(+args.before.value, 0, drag);
-                                  else
-                                    this.selectTable.columns.splice(+args.before.value - 1, 0, drag);
-            
-                                  this.updateColumnsToShow();
-                                  this.holder.delayedNotify({});
-                                }*/
-                            } })));
+                                } }))));
                 } })));
     };
     return DatabaseHolder;
-}(database_holder_1.DatabaseHolderBase));
+}(database_holder_1.DatabaseHolderClientBase));
 exports.DatabaseHolder = DatabaseHolder;
 //# sourceMappingURL=database-holder.js.map
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! bluebird */ "bluebird")))
 
 /***/ }),
 
-/***/ "../objio-object/client/database/database.js":
-/*!***************************************************!*\
-  !*** ../objio-object/client/database/database.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var database_1 = __webpack_require__(/*! ../../base/database/database */ "../objio-object/base/database/database.js");
-var Database = /** @class */ (function (_super) {
-    __extends(Database, _super);
-    function Database() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Database.prototype.loadTableInfo = function (args) {
-        return this.holder.invokeMethod({ method: 'loadTableInfo', args: args });
-    };
-    Database.prototype.loadRowsCount = function (args) {
-        return this.holder.invokeMethod({ method: 'loadRowsCount', args: args });
-    };
-    Database.prototype.deleteTable = function (args) {
-        return this.holder.invokeMethod({ method: 'deleteTable', args: args });
-    };
-    Database.prototype.createTable = function (args) {
-        return this.holder.invokeMethod({ method: 'createTable', args: args });
-    };
-    Database.prototype.loadCells = function (args) {
-        return this.holder.invokeMethod({ method: 'loadCells', args: args });
-    };
-    Database.prototype.getNumStats = function (args) {
-        return this.holder.invokeMethod({ method: 'getNumStats', args: args });
-    };
-    Database.prototype.createSubtable = function (args) {
-        return this.holder.invokeMethod({ method: 'createSubtable', args: args });
-    };
-    Database.prototype.pushCells = function (args) {
-        return this.holder.invokeMethod({ method: 'pushCells', args: args });
-    };
-    return Database;
-}(database_1.DatabaseBase));
-exports.Database = Database;
-//# sourceMappingURL=database.js.map
-
-/***/ }),
-
-/***/ "../objio-object/client/database/doc-table.js":
-/*!****************************************************!*\
-  !*** ../objio-object/client/database/doc-table.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Promise) {
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var prop_sheet_1 = __webpack_require__(/*! ts-react-ui/prop-sheet */ "../ts-react-ui/prop-sheet/index.js");
-var list_1 = __webpack_require__(/*! ts-react-ui/model/list */ "../ts-react-ui/model/list.js");
-var doc_table_1 = __webpack_require__(/*! ../../base/database/doc-table */ "../objio-object/base/database/doc-table.js");
-var table_1 = __webpack_require__(/*! ./table */ "../objio-object/client/database/table.js");
-var DocTable = /** @class */ (function (_super) {
-    __extends(DocTable, _super);
-    function DocTable(args) {
-        var _this = _super.call(this) || this;
-        _this.render = new list_1.RenderListModel(0, 20);
-        _this.maxTimeBetweenRequests = 300;
-        _this.totalRows = 0;
-        _this.cols = Array();
-        if (args) {
-            if (!args.dest && !args.table)
-                throw 'database or table must defined';
-            _this.table = args.table || new table_1.Table({ source: args.dest });
-        }
-        _this.render.setHandler({
-            loadItems: function (from, count) {
-                if (_this.lastLoadTimer) {
-                    _this.lastLoadTimer.cancel();
-                    _this.lastLoadTimer = null;
-                }
-                _this.lastLoadTimer = Promise.delay(_this.maxTimeBetweenRequests);
-                return _this.lastLoadTimer.then(function () {
-                    _this.lastLoadTimer = null;
-                    return _this.table.loadCells({ first: from, count: count, table: _this.tableName });
-                });
-            }
-        });
-        _this.holder.addEventHandler({
-            onLoad: function () {
-                _this.totalRows = _this.table.getTotalRowsNum();
-                _this.cols = _this.table.getColumns();
-                _this.holder.notify();
-                _this.onInit();
-                return Promise.resolve();
-            },
-            onCreate: function () {
-                _this.onInit();
-                return _this.execute({
-                    fileObjId: args.source.holder.getID(),
-                    columns: args.source.getColumns(),
-                    table: args.tableName
-                });
-            },
-            onObjChange: function () {
-                if (_this.totalRows == _this.table.getTotalRowsNum())
-                    return;
-                _this.totalRows = _this.table.getTotalRowsNum();
-                _this.cols = _this.table.getColumns();
-                _this.holder.notify();
-            }
-        });
-        return _this;
-    }
-    DocTable.prototype.onInit = function () {
-        var _this = this;
-        this.table.holder.addEventHandler({
-            onObjChange: function () {
-                if (!_this.table.isStatusValid()) {
-                    _this.holder.delayedNotify();
-                    return;
-                }
-                _this.totalRows = _this.table.getTotalRowsNum();
-                _this.cols = _this.table.getColumns();
-                _this.holder.notify();
-            }
-        });
-    };
-    DocTable.prototype.getObjPropGroups = function () {
-        var _this = this;
-        return (React.createElement(prop_sheet_1.PropsGroup, { label: 'table' },
-            React.createElement(prop_sheet_1.PropItem, { label: 'name', value: this.table.getTable() }),
-            React.createElement(prop_sheet_1.PropItem, { label: 'rows number', value: this.getTotalRowsNum() }),
-            React.createElement(prop_sheet_1.PropItem, { label: 'columns number', value: this.getAllColumns().length }),
-            React.createElement(prop_sheet_1.PropItem, { label: 'execute time', value: this.table.getLastExecuteTime() + ' ms' }),
-            React.createElement(prop_sheet_1.PropItem, null,
-                React.createElement("button", { disabled: this.isStatusInProgess(), onClick: function () {
-                        var args = {
-                            table: _this.getTable(),
-                            fileObjId: _this.getFileObjId()
-                        };
-                        _this.holder.getObject(args.fileObjId)
-                            .then(function (file) {
-                            args.columns = file.getColumns();
-                            _this.execute(args);
-                        });
-                    } }, "execute"))));
-    };
-    DocTable.prototype.getTable = function () {
-        return this.table.getTable();
-    };
-    DocTable.prototype.getTableName = function () {
-        return this.tableName;
-    };
-    DocTable.prototype.setTableName = function (name) {
-        var _this = this;
-        return this.table.loadTableInfo({ table: name })
-            .then(function (res) {
-            _this.tableName = name;
-            _this.totalRows = res.totalRows;
-            _this.cols = res.columns;
-            _this.render.clearCache(false);
-            _this.holder.notify();
-        });
-    };
-    DocTable.prototype.getTableRef = function () {
-        return this.table;
-    };
-    DocTable.prototype.getFileObjId = function () {
-        return this.table.getFileObjId();
-    };
-    DocTable.prototype.getLastExecuteTime = function () {
-        return this.table.getLastExecuteTime();
-    };
-    DocTable.prototype.updateSubtable = function (args) {
-        return this.table.createSubtable(args);
-    };
-    DocTable.prototype.getTotalRowsNum = function () {
-        return this.totalRows;
-    };
-    DocTable.prototype.getColumns = function () {
-        return this.cols;
-    };
-    DocTable.prototype.getAllColumns = function () {
-        return this.table.getColumns();
-    };
-    DocTable.prototype.execute = function (args) {
-        this.render.clearCache(false);
-        return this.table.execute(args);
-    };
-    DocTable.prototype.getRender = function () {
-        return this.render;
-    };
-    DocTable.prototype.isStatusInProgess = function () {
-        return this.table.isStatusInProgess() || _super.prototype.isStatusInProgess.call(this);
-    };
-    DocTable.prototype.getProgress = function () {
-        return this.table.getProgress() || this.progress;
-    };
-    DocTable.prototype.getStatus = function () {
-        return this.table.getStatus();
-    };
-    return DocTable;
-}(doc_table_1.DocTableBase));
-exports.DocTable = DocTable;
-//# sourceMappingURL=doc-table.js.map
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! bluebird */ "bluebird")))
-
-/***/ }),
-
-/***/ "../objio-object/client/database/index.js":
-/*!************************************************!*\
-  !*** ../objio-object/client/database/index.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(/*! ./connection */ "../objio-object/client/database/connection.js"));
-__export(__webpack_require__(/*! ./database */ "../objio-object/client/database/database.js"));
-__export(__webpack_require__(/*! ./remote-database */ "../objio-object/client/database/remote-database.js"));
-__export(__webpack_require__(/*! ./doc-table */ "../objio-object/client/database/doc-table.js"));
-__export(__webpack_require__(/*! ./table */ "../objio-object/client/database/table.js"));
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ "../objio-object/client/database/remote-database.js":
-/*!**********************************************************!*\
-  !*** ../objio-object/client/database/remote-database.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var remote_database_1 = __webpack_require__(/*! ../../base/database/remote-database */ "../objio-object/base/database/remote-database.js");
-var RemoteDatabase = /** @class */ (function (_super) {
-    __extends(RemoteDatabase, _super);
-    function RemoteDatabase(args) {
-        var _this = _super.call(this) || this;
-        if (args) {
-            _this.connection = args.connection;
-            _this.database = args.database;
-        }
-        return _this;
-    }
-    RemoteDatabase.prototype.loadTableInfo = function (args) {
-        return this.holder.invokeMethod({ method: 'loadTableInfo', args: args });
-    };
-    RemoteDatabase.prototype.loadRowsCount = function (args) {
-        return this.holder.invokeMethod({ method: 'loadRowsCount', args: args });
-    };
-    RemoteDatabase.prototype.deleteTable = function (args) {
-        return this.holder.invokeMethod({ method: 'deleteTable', args: args });
-    };
-    RemoteDatabase.prototype.createTable = function (args) {
-        return this.holder.invokeMethod({ method: 'createTable', args: args });
-    };
-    RemoteDatabase.prototype.loadCells = function (args) {
-        return this.holder.invokeMethod({ method: 'loadCells', args: args });
-    };
-    RemoteDatabase.prototype.getNumStats = function (args) {
-        return this.holder.invokeMethod({ method: 'getNumStats', args: args });
-    };
-    RemoteDatabase.prototype.createSubtable = function (args) {
-        return this.holder.invokeMethod({ method: 'createSubtable', args: args });
-    };
-    RemoteDatabase.prototype.pushCells = function (args) {
-        return this.holder.invokeMethod({ method: 'pushCells', args: args });
-    };
-    return RemoteDatabase;
-}(remote_database_1.RemoteDatabaseBase));
-exports.RemoteDatabase = RemoteDatabase;
-//# sourceMappingURL=remote-database.js.map
-
-/***/ }),
-
-/***/ "../objio-object/client/database/table.js":
-/*!************************************************!*\
-  !*** ../objio-object/client/database/table.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var table_1 = __webpack_require__(/*! ../../base/database/table */ "../objio-object/base/database/table.js");
-var Table = /** @class */ (function (_super) {
-    __extends(Table, _super);
-    function Table() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Table.prototype.execute = function (args) {
-        return this.holder.invokeMethod({ method: 'execute', args: args });
-    };
-    Table.prototype.loadCells = function (args) {
-        return this.holder.invokeMethod({ method: 'loadCells', args: args });
-    };
-    Table.prototype.pushCells = function (args) {
-        return this.holder.invokeMethod({ method: 'pushCells', args: args });
-    };
-    Table.prototype.updateCells = function (args) {
-        return this.holder.invokeMethod({ method: 'updateCell', args: args });
-    };
-    Table.prototype.removeRows = function (args) {
-        return this.holder.invokeMethod({ method: 'removeRows', args: args });
-    };
-    Table.prototype.createSubtable = function (args) {
-        return this.holder.invokeMethod({ method: 'createSubtable', args: args });
-    };
-    Table.prototype.getNumStats = function (args) {
-        return this.holder.invokeMethod({ method: 'getNumStats', args: args });
-    };
-    Table.prototype.loadTableInfo = function (args) {
-        return this.holder.invokeMethod({ method: 'loadTableInfo', args: args });
-    };
-    return Table;
-}(table_1.TableBase));
-exports.Table = Table;
-//# sourceMappingURL=table.js.map
-
-/***/ }),
-
-/***/ "../objio-object/client/database/table2.js":
-/*!*************************************************!*\
-  !*** ../objio-object/client/database/table2.js ***!
-  \*************************************************/
+/***/ "../objio-object/client/database/database-table.js":
+/*!*********************************************************!*\
+  !*** ../objio-object/client/database/database-table.js ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4481,15 +2525,15 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "react");
-var table2_1 = __webpack_require__(/*! ../../base/database/table2 */ "../objio-object/base/database/table2.js");
+var database_table_1 = __webpack_require__(/*! ../../base/database/database-table */ "../objio-object/base/database/database-table.js");
 var prop_sheet_1 = __webpack_require__(/*! ts-react-ui/prop-sheet */ "../ts-react-ui/prop-sheet/index.js");
 var database_holder_1 = __webpack_require__(/*! ./database-holder */ "../objio-object/client/database/database-holder.js");
 var index_1 = __webpack_require__(/*! ../table-file/index */ "../objio-object/client/table-file/index.js");
 var checkicon_1 = __webpack_require__(/*! ts-react-ui/checkicon */ "../ts-react-ui/checkicon.js");
 var grid_loadable_model_1 = __webpack_require__(/*! ts-react-ui/grid/grid-loadable-model */ "../ts-react-ui/grid/grid-loadable-model.js");
-var Table2 = /** @class */ (function (_super) {
-    __extends(Table2, _super);
-    function Table2() {
+var DatabaseTable = /** @class */ (function (_super) {
+    __extends(DatabaseTable, _super);
+    function DatabaseTable() {
         var _this = _super.call(this) || this;
         _this.tables = Array();
         _this.dbChangeHandler = {
@@ -4512,20 +2556,20 @@ var Table2 = /** @class */ (function (_super) {
         });
         return _this;
     }
-    Table2.prototype.getGrid = function () {
+    DatabaseTable.prototype.getGrid = function () {
         return this.grid;
     };
-    Table2.prototype.updateDatabaseData = function () {
+    DatabaseTable.prototype.updateDatabaseData = function () {
         var _this = this;
-        if (this.tableDesc && this.tableName != this.tableDesc.tableName)
+        if (this.tableDesc && this.tableName != this.tableDesc.table)
             this.tableDesc = null;
         this.db.loadTableList()
             .then(function (lst) {
-            _this.tables = lst.map(function (t) { return t.tableName; });
+            _this.tables = lst.map(function (t) { return t.table; });
             _this.holder.delayedNotify();
         });
         if (this.tableName && !this.tableDesc) {
-            this.loadTableGuid({ tableName: this.tableName, desc: true })
+            this.loadTableGuid({ table: this.tableName, desc: true })
                 .then(function (desc) {
                 _this.onTableSelected(desc);
             })
@@ -4536,9 +2580,9 @@ var Table2 = /** @class */ (function (_super) {
             });
         }
     };
-    Table2.prototype.onTableSelected = function (table) {
+    DatabaseTable.prototype.onTableSelected = function (table) {
         var _this = this;
-        this.tableDesc = __assign({}, table.desc, { tableName: this.tableName });
+        this.tableDesc = __assign({}, table.desc, { table: this.tableName });
         this.guid = table.guid;
         this.grid = new grid_loadable_model_1.GridLoadableModel({
             rowsCount: table.desc.rowsNum,
@@ -4557,39 +2601,39 @@ var Table2 = /** @class */ (function (_super) {
         });
         this.holder.delayedNotify();
     };
-    Table2.prototype.getTableInfo = function () {
+    DatabaseTable.prototype.getTableInfo = function () {
         if (this.status != 'ok')
             return null;
         return this.tableDesc;
     };
-    Table2.prototype.pushData = function (args) {
+    DatabaseTable.prototype.pushData = function (args) {
         return this.holder.invokeMethod({ method: 'pushData', args: args });
     };
-    Table2.prototype.loadTableFile = function (args) {
+    DatabaseTable.prototype.loadTableFile = function (args) {
         return this.holder.invokeMethod({ method: 'loadTableFile', args: args });
     };
-    Table2.prototype.loadTableGuid = function (args) {
+    DatabaseTable.prototype.loadTableGuid = function (args) {
         return this.holder.invokeMethod({ method: 'loadTableGuid', args: args });
     };
-    Table2.prototype.loadTableRowsNum = function (args) {
+    DatabaseTable.prototype.loadTableRowsNum = function (args) {
         return this.holder.invokeMethod({ method: 'loadTableRowsNum', args: args });
     };
-    Table2.prototype.loadTableData = function (args) {
+    DatabaseTable.prototype.loadTableData = function (args) {
         return this.holder.invokeMethod({ method: 'loadTableData', args: args });
     };
-    Table2.prototype.setDatabase = function (args) {
+    DatabaseTable.prototype.setDatabase = function (args) {
         return this.holder.invokeMethod({ method: 'setDatabase', args: args });
     };
-    Table2.prototype.setTableName = function (args) {
+    DatabaseTable.prototype.setTableName = function (args) {
         return this.holder.invokeMethod({ method: 'setTableName', args: args });
     };
-    Table2.prototype.setTableFile = function (args) {
+    DatabaseTable.prototype.setTableFile = function (args) {
         return this.holder.invokeMethod({ method: 'setTableFile', args: args });
     };
-    Table2.prototype.isTableValid = function () {
+    DatabaseTable.prototype.isTableValid = function () {
         return this.tableName && this.tableDesc;
     };
-    Table2.prototype.getObjPropGroups = function (props) {
+    DatabaseTable.prototype.getObjPropGroups = function (props) {
         var _this = this;
         return (React.createElement(prop_sheet_1.PropsGroup, { label: 'config', defaultHeight: 200, key: this.holder.getID() },
             React.createElement(prop_sheet_1.DropDownPropItem, { label: 'database', value: this.db ? { value: this.db.getID(), render: this.db.getName() } : null, values: props.objects([database_holder_1.DatabaseHolder]).map(function (db) {
@@ -4631,10 +2675,10 @@ var Table2 = /** @class */ (function (_super) {
                     _this.setTableFile({ id: file.value });
                 } })));
     };
-    return Table2;
-}(table2_1.TableBase));
-exports.Table2 = Table2;
-//# sourceMappingURL=table2.js.map
+    return DatabaseTable;
+}(database_table_1.DatabaseTableBase));
+exports.DatabaseTable = DatabaseTable;
+//# sourceMappingURL=database-table.js.map
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! bluebird */ "bluebird")))
 
 /***/ }),
@@ -4974,163 +3018,6 @@ exports.FileStorage = FileStorage;
 
 /***/ }),
 
-/***/ "../objio-object/client/files-container.js":
-/*!*************************************************!*\
-  !*** ../objio-object/client/files-container.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Promise) {
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var object_base_1 = __webpack_require__(/*! ../base/object-base */ "../objio-object/base/object-base.js");
-var list_1 = __webpack_require__(/*! ts-react-ui/model/list */ "../ts-react-ui/model/list.js");
-var FilesContainer = /** @class */ (function (_super) {
-    __extends(FilesContainer, _super);
-    function FilesContainer(args) {
-        var _this = _super.call(this) || this;
-        _this.render = new list_1.RenderListModel(0, 20);
-        _this.maxTimeBetweenRequests = 0;
-        _this.loading = { progress: 1, name: '', loading: false };
-        _this.remoteSelect = [];
-        if (args) {
-            _this.database = args.source;
-        }
-        _this.holder.addEventHandler({
-            onLoad: function () {
-                _this.render.subscribe(function () {
-                    _this.remoteSelect = [];
-                    var item = _this.getItem(_this.render.getSelRow());
-                    if (!item)
-                        return _this.holder.save();
-                    _this.remoteSelect = [__assign({}, item)];
-                    _this.holder.save();
-                    _this.selectedUrl = _this.getPath(item.url);
-                    _this.holder.delayedNotify();
-                }, 'select-row');
-                _this.table.holder.addEventHandler({
-                    onObjChange: function () {
-                        _this.holder.delayedNotify();
-                    }
-                });
-                return Promise.resolve();
-            }
-        });
-        _this.render.setHandler({
-            loadItems: function (from, count) {
-                if (_this.lastLoadTimer) {
-                    _this.lastLoadTimer.cancel();
-                    _this.lastLoadTimer = null;
-                }
-                _this.lastLoadTimer = Promise.delay(_this.maxTimeBetweenRequests);
-                _this.maxTimeBetweenRequests = 300;
-                return _this.lastLoadTimer.then(function () {
-                    _this.lastLoadTimer = null;
-                    return _this.table.loadCells({ first: from, count: count });
-                });
-            }
-        });
-        return _this;
-    }
-    FilesContainer.prototype.getDirPath = function () {
-        return 'files_container_' + this.holder.getID();
-    };
-    FilesContainer.prototype.selectNextFile = function (ext) {
-        var selRow = this.render.getSelRow() + 1;
-        if (selRow >= this.render.getItemsCount())
-            selRow = 0;
-        this.remoteSelect = [];
-        for (var n = selRow; n < this.render.getItemsCount(); n++) {
-            var item = this.getItem(n);
-            if (!item) {
-                this.holder.save();
-                return false;
-            }
-            if (ext && item.ext.toLowerCase() != ext)
-                continue;
-            this.remoteSelect = [__assign({}, item)];
-            this.holder.save();
-            this.render.setSelRow(n);
-            return true;
-        }
-        return false;
-    };
-    FilesContainer.prototype.getItem = function (n) {
-        var rows = this.render.getItems(n, 1);
-        if (!rows)
-            return null;
-        var row = rows[0];
-        return {
-            id: row[0],
-            name: row[1],
-            ext: row[2],
-            size: +row[3],
-            url: row[4]
-        };
-    };
-    FilesContainer.prototype.getPath = function (file) {
-        return this.holder.getPublicPath([this.getDirPath(), file].join('/'));
-    };
-    FilesContainer.prototype.getSelectedUrl = function () {
-        return this.selectedUrl;
-    };
-    FilesContainer.prototype.getRemoteSelect = function () {
-        return this.remoteSelect;
-    };
-    FilesContainer.prototype.setNextRequestDelay = function (delay) {
-        this.maxTimeBetweenRequests = delay;
-    };
-    FilesContainer.prototype.getFilesCount = function () {
-        if (!this.table)
-            return 0;
-        return this.table.getTotalRowsNum();
-    };
-    FilesContainer.prototype.getRender = function () {
-        return this.render;
-    };
-    FilesContainer.prototype.getColumns = function () {
-        if (!this.table)
-            return [];
-        return this.table.getColumns();
-    };
-    FilesContainer.prototype.getUserProgress = function (userId) {
-        return __assign({}, this.loading);
-    };
-    FilesContainer.TYPE_ID = 'FilesContainer';
-    FilesContainer.SERIALIZE = function () { return (__assign({}, object_base_1.ObjectBase.SERIALIZE(), { database: { type: 'object' }, table: { type: 'object' }, loading: { type: 'json' }, remoteSelect: { type: 'json' } })); };
-    return FilesContainer;
-}(object_base_1.ObjectBase));
-exports.FilesContainer = FilesContainer;
-//# sourceMappingURL=files-container.js.map
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! bluebird */ "bluebird")))
-
-/***/ }),
-
 /***/ "../objio-object/client/image-file.js":
 /*!********************************************!*\
   !*** ../objio-object/client/image-file.js ***!
@@ -5184,13 +3071,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var file_object_1 = __webpack_require__(/*! ./file-object */ "../objio-object/client/file-object.js");
 var table_file_1 = __webpack_require__(/*! ./table-file */ "../objio-object/client/table-file/index.js");
 var video_file_object_1 = __webpack_require__(/*! ./video-file-object */ "../objio-object/client/video-file-object.js");
-var database_1 = __webpack_require__(/*! ./database */ "../objio-object/client/database/index.js");
-var files_container_1 = __webpack_require__(/*! ./files-container */ "../objio-object/client/files-container.js");
 var sprite_sheet_1 = __webpack_require__(/*! ./sprite-sheet */ "../objio-object/client/sprite-sheet.js");
 var video_concat_1 = __webpack_require__(/*! ./video-concat */ "../objio-object/client/video-concat.js");
 var image_file_1 = __webpack_require__(/*! ./image-file */ "../objio-object/client/image-file.js");
 var database_holder_1 = __webpack_require__(/*! ./database/database-holder */ "../objio-object/client/database/database-holder.js");
-var table2_1 = __webpack_require__(/*! ./database/table2 */ "../objio-object/client/database/table2.js");
+var database_table_1 = __webpack_require__(/*! ./database/database-table */ "../objio-object/client/database/database-table.js");
 var file_storage_1 = __webpack_require__(/*! ./file-storage */ "../objio-object/client/file-storage.js");
 function createFileObject(args) {
     var ext = file_object_1.getExt(args.name).toLowerCase();
@@ -5210,16 +3095,13 @@ function getClasses() {
         sprite_sheet_1.Animation,
         sprite_sheet_1.SpriteSheet,
         database_holder_1.DatabaseHolder,
-        database_1.Table,
-        database_1.DocTable,
         file_object_1.FileObject,
         table_file_1.CSVTableFile,
         table_file_1.JSONTableFile,
         video_file_object_1.VideoFileObject,
-        files_container_1.FilesContainer,
         video_concat_1.VideoConcat,
         image_file_1.ImageFile,
-        table2_1.Table2,
+        database_table_1.DatabaseTable,
         file_storage_1.FileStorage
     ];
 }
@@ -6388,7 +4270,7 @@ var DatabaseHolderView = /** @class */ (function (_super) {
         };
         _this.renderHeader = function (props) {
             var table = _this.props.model.getSelectTable();
-            if (!table)
+            if (!table || !table.desc.columns || !table.desc.columns[props.col])
                 return null;
             return (React.createElement("span", null, table.desc.columns[props.col].colName));
         };
@@ -6400,11 +4282,12 @@ var DatabaseHolderView = /** @class */ (function (_super) {
     DatabaseHolderView.prototype.renderTable = function () {
         var model = this.props.model;
         var table = model.getSelectTable();
-        if (!table || table instanceof Promise)
+        var grid = model.getGrid();
+        if (!table || table instanceof Promise || !grid)
             return null;
         return (React.createElement("div", { style: { position: 'relative', flexGrow: 1 } },
-            React.createElement(grid_1.Grid, { model: model.getGrid(), key: table.tableName, renderHeader: this.renderHeader, renderCell: this.renderCell, onScrollToBottom: function () {
-                    model.getGrid().loadNext();
+            React.createElement(grid_1.Grid, { model: grid, key: table.tableName, renderHeader: this.renderHeader, renderCell: this.renderCell, onScrollToBottom: function () {
+                    grid.loadNext();
                 } })));
     };
     DatabaseHolderView.prototype.renderContent = function () {
@@ -6427,9 +4310,9 @@ exports.DatabaseHolderView = DatabaseHolderView;
 
 /***/ }),
 
-/***/ "../objio-object/view/doc-table-view.js":
+/***/ "../objio-object/view/database-table.js":
 /*!**********************************************!*\
-  !*** ../objio-object/view/doc-table-view.js ***!
+  !*** ../objio-object/view/database-table.js ***!
   \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6451,124 +4334,62 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "react");
-var database_1 = __webpack_require__(/*! ../client/database */ "../objio-object/client/database/index.js");
-exports.DocTable = database_1.DocTable;
-var fittoparent_1 = __webpack_require__(/*! ts-react-ui/fittoparent */ "../ts-react-ui/fittoparent.js");
-var list_1 = __webpack_require__(/*! ts-react-ui/list */ "../ts-react-ui/list.js");
-var table_file_1 = __webpack_require__(/*! ../client/table-file */ "../objio-object/client/table-file/index.js");
-var config_1 = __webpack_require__(/*! ./config */ "../objio-object/view/config.js");
-var prop_sheet_1 = __webpack_require__(/*! ts-react-ui/prop-sheet */ "../ts-react-ui/prop-sheet/index.js");
-var DocTableView = /** @class */ (function (_super) {
-    __extends(DocTableView, _super);
-    function DocTableView() {
+var database_table_1 = __webpack_require__(/*! ../client/database/database-table */ "../objio-object/client/database/database-table.js");
+exports.DatabaseTable = database_table_1.DatabaseTable;
+var grid_1 = __webpack_require__(/*! ts-react-ui/grid/grid */ "../ts-react-ui/grid/grid.js");
+var DatabaseTableView = /** @class */ (function (_super) {
+    __extends(DatabaseTableView, _super);
+    function DatabaseTableView() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.selectRow = function () {
-            console.log('sel-row', _this.getRender().getSelRow());
-        };
-        _this.subscriber = function () {
-            _this.updateModel();
+        _this.notify = function () {
             _this.setState({});
+        };
+        _this.renderCell = function (props) {
+            var row = _this.props.model.getGrid().getRowOrLoad(props.row);
+            if (!row)
+                return null;
+            return (React.createElement("span", null, row.cell[props.col]));
+        };
+        _this.renderHeader = function (props) {
+            var table = _this.props.model.getTableInfo();
+            if (!table || !table.columns[props.col])
+                return null;
+            return (React.createElement("span", null, table.columns[props.col].colName));
         };
         return _this;
     }
-    DocTableView.prototype.getRender = function () {
-        return this.props.model.getRender();
+    DatabaseTableView.prototype.componentDidMount = function () {
+        this.props.model.holder.subscribe(this.notify);
     };
-    DocTableView.prototype.componentDidMount = function () {
-        this.props.model.holder.subscribe(this.subscriber);
-        this.getRender().subscribe(this.selectRow, 'select-row');
-        this.updateModel();
+    DatabaseTableView.prototype.componentWillUnmount = function () {
+        this.props.model.holder.unsubscribe(this.notify);
     };
-    DocTableView.prototype.componentWillUnmount = function () {
-        this.props.model.holder.unsubscribe(this.subscriber);
-        this.getRender().unsubscribe(this.selectRow, 'select-row');
+    DatabaseTableView.prototype.renderNotConfigured = function () {
+        return 'object not configured properly';
     };
-    DocTableView.prototype.updateModel = function () {
-        var model = this.getRender();
-        model.setItemsCount(this.props.model.getTotalRowsNum());
-        model.setColumns(this.props.model.getColumns().map(function (col, c) {
-            return {
-                name: col.name,
-                render: function (args) {
-                    return (React.createElement("div", null, args.item[c]));
-                }
-            };
-        }));
-    };
-    DocTableView.prototype.renderTable = function () {
-        return (React.createElement(fittoparent_1.FitToParent, { wrapToFlex: true },
-            React.createElement(list_1.List, { border: true, model: this.getRender() })));
-    };
-    DocTableView.prototype.renderInvalid = function () {
-        if (this.props.model.getStatus() == 'ok')
+    DatabaseTableView.prototype.renderTable = function () {
+        var grid = this.props.model.getGrid();
+        if (!grid)
             return null;
-        return (React.createElement("div", null, "not confgured"));
-    };
-    DocTableView.prototype.renderErrors = function () {
-        var errors = this.props.model.getErrors().concat(this.props.model.getTableRef().getErrors());
-        if (!errors.length)
-            return null;
-        return (React.createElement("div", null, errors.join(', ')));
-    };
-    DocTableView.prototype.renderValid = function () {
-        return (React.createElement(React.Fragment, null,
-            this.renderErrors(),
-            this.renderTable()));
-    };
-    DocTableView.prototype.render = function () {
-        var model = this.props.model;
-        return (React.createElement("div", { style: { display: 'flex', flexDirection: 'column', flexGrow: 1 } }, this.renderInvalid() || this.renderValid()));
-    };
-    return DocTableView;
-}(React.Component));
-exports.DocTableView = DocTableView;
-var DocTableConfig = /** @class */ (function (_super) {
-    __extends(DocTableConfig, _super);
-    function DocTableConfig() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    DocTableConfig.prototype.componentDidMount = function () {
-        this.config.tableName = 'table';
-        var dbs = this.props.objects([database_1.Database, database_1.RemoteDatabase]);
-        var csvs = this.props.objects([table_file_1.TableFile]);
-        this.config.dest = dbs[0];
-        this.config.source = csvs[0];
-        this.setState({
-            dbs: dbs,
-            csvs: csvs,
-            dbId: dbs.length ? dbs[0].holder.getID() : ''
-        });
-    };
-    DocTableConfig.prototype.render = function () {
-        var _this = this;
-        return (React.createElement(prop_sheet_1.PropsGroup, { label: 'database table' },
-            React.createElement(prop_sheet_1.DropDownPropItem, { label: 'database', value: { value: this.state.dbId }, values: (this.state.dbs || []).map(function (db, i) {
-                    return {
-                        value: db.holder.getID(),
-                        render: db.getName()
-                    };
-                }), onSelect: function (value) {
-                    _this.config.dest = _this.state.dbs.find(function (db) { return db.holder.getID() == value.value; });
-                    _this.setState({ dbId: value.value });
-                } }),
-            React.createElement(prop_sheet_1.TextPropItem, { label: 'table name', value: this.config.tableName, onEnter: function (value) {
-                    _this.config.tableName = value;
-                } }),
-            React.createElement(prop_sheet_1.DropDownPropItem, { label: 'file source', value: { value: this.state.csvId }, values: (this.state.csvs || []).map(function (csv, i) {
-                    return {
-                        value: csv.holder.getID(),
-                        render: csv.getName()
-                    };
-                }), onSelect: function (value) {
-                    var csvId = value.value;
-                    _this.config.source = _this.state.csvs.find(function (csv) { return csv.holder.getID() == csvId; });
-                    _this.setState({ csvId: csvId });
+        return (React.createElement("div", { style: { position: 'relative', flexGrow: 1 } },
+            React.createElement(grid_1.Grid, { model: grid, renderHeader: this.renderHeader, renderCell: this.renderCell, onScrollToBottom: function () {
+                    grid.loadNext();
                 } })));
     };
-    return DocTableConfig;
-}(config_1.ConfigBase));
-exports.DocTableConfig = DocTableConfig;
-//# sourceMappingURL=doc-table-view.js.map
+    DatabaseTableView.prototype.render = function () {
+        var model = this.props.model;
+        var jsx;
+        if (!model.getDatabase() || !model.getTableName() || !model.isTableValid())
+            jsx = this.renderNotConfigured();
+        else if (!model.isStatusInProgess())
+            jsx = this.renderTable();
+        return (React.createElement("div", { style: { position: 'relative', flexGrow: 1 } },
+            React.createElement("div", { style: { position: 'absolute', left: 0, top: 0, right: 0, bottom: 0, display: 'flex' } }, jsx)));
+    };
+    return DatabaseTableView;
+}(React.Component));
+exports.DatabaseTableView = DatabaseTableView;
+//# sourceMappingURL=database-table.js.map
 
 /***/ }),
 
@@ -6882,182 +4703,6 @@ exports.FileStorageView = FileStorageView;
 
 /***/ }),
 
-/***/ "../objio-object/view/files-container-view.js":
-/*!****************************************************!*\
-  !*** ../objio-object/view/files-container-view.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var files_container_1 = __webpack_require__(/*! ../client/files-container */ "../objio-object/client/files-container.js");
-exports.FilesContainer = files_container_1.FilesContainer;
-var database_1 = __webpack_require__(/*! ../client/database/database */ "../objio-object/client/database/database.js");
-var config_1 = __webpack_require__(/*! ./config */ "../objio-object/view/config.js");
-var objio_1 = __webpack_require__(/*! objio */ "../objio/index.js");
-var fittoparent_1 = __webpack_require__(/*! ts-react-ui/fittoparent */ "../ts-react-ui/fittoparent.js");
-var list_1 = __webpack_require__(/*! ts-react-ui/list */ "../ts-react-ui/list.js");
-var FilesContainerView = /** @class */ (function (_super) {
-    __extends(FilesContainerView, _super);
-    function FilesContainerView() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.subscriber = function () {
-            _this.updateModel();
-            _this.setState({});
-        };
-        _this.watch = false;
-        _this.autoplay = false;
-        _this.audio = React.createRef();
-        _this.toggleWatch = function () {
-            _this.watch = !_this.watch;
-            if (_this.watch)
-                _this.subscriber();
-            else
-                _this.setState({});
-        };
-        return _this;
-    }
-    FilesContainerView.prototype.componentDidMount = function () {
-        this.props.model.holder.subscribe(this.subscriber);
-        this.subscriber();
-    };
-    FilesContainerView.prototype.componentWillUnmount = function () {
-        this.props.model.holder.unsubscribe(this.subscriber);
-    };
-    FilesContainerView.prototype.updateModel = function () {
-        var model = this.props.model.getRender();
-        model.setItemsCount(this.props.model.getFilesCount());
-        model.setColumns(this.props.model.getColumns().map(function (col, c) {
-            return {
-                name: col.name,
-                render: function (args) {
-                    return (React.createElement("div", null, args.item[c]));
-                }
-            };
-        }));
-        this.props.model.setNextRequestDelay(0);
-    };
-    FilesContainerView.prototype.renderTable = function () {
-        return (React.createElement(fittoparent_1.FitToParent, { wrapToFlex: true },
-            React.createElement(list_1.List, { border: true, model: this.props.model.getRender() })));
-    };
-    FilesContainerView.prototype.getSelectedUrl = function () {
-        var url = this.props.model.getSelectedUrl();
-        var remote = this.props.model.getRemoteSelect();
-        if (this.watch && remote && remote.length) {
-            return this.props.model.getPath(remote[0].url);
-        }
-        return url;
-    };
-    FilesContainerView.prototype.renderImage = function () {
-        var url = this.getSelectedUrl();
-        if (!url || !['.gif', '.jpg', '.jpeg', '.png'].some(function (e) { return url.endsWith(e); }))
-            return null;
-        return (React.createElement("div", { style: {
-                flexGrow: 1,
-                backgroundImage: "url(" + url + ")",
-                backgroundPosition: 'center',
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat'
-            } }));
-    };
-    FilesContainerView.prototype.renderMusic = function () {
-        var _this = this;
-        var url = this.getSelectedUrl();
-        if (!url || !['.mp3'].some(function (e) { return url.endsWith(e); }))
-            return null;
-        return (React.createElement("div", { style: { flexGrow: 1 } },
-            React.createElement("audio", { ref: this.audio, src: url, autoPlay: this.autoplay || this.watch, controls: true, onClick: function () {
-                    setTimeout(function () {
-                        if (!_this.audio.current)
-                            return;
-                        _this.autoplay = !_this.audio.current.paused;
-                    }, 100);
-                }, onEnded: function () {
-                    if (!_this.watch)
-                        _this.props.model.selectNextFile('.mp3');
-                } })));
-    };
-    FilesContainerView.prototype.renderVideo = function () {
-        var url = this.getSelectedUrl();
-        if (!url || !['.webm', '.mp4'].some(function (e) { return url.endsWith(e); }))
-            return null;
-        return (React.createElement("div", { style: { flexGrow: 1, display: 'flex' } },
-            React.createElement(fittoparent_1.FitToParent, { wrapToFlex: true },
-                React.createElement("video", { controls: true, src: url }))));
-    };
-    FilesContainerView.prototype.renderProgress = function () {
-        var progress = this.props.model.getUserProgress();
-        if (!progress.loading)
-            return null;
-        return (React.createElement("div", { style: { flexGrow: 0 } },
-            progress.name,
-            ", ",
-            progress.progress));
-    };
-    FilesContainerView.prototype.render = function () {
-        return (React.createElement("div", { style: { display: 'flex', flexGrow: 1, flexDirection: 'column' } },
-            this.renderProgress(),
-            React.createElement("div", { style: { flexGrow: 0 } },
-                React.createElement("input", { type: 'checkbox', id: 'watch', checked: this.watch, onClick: this.toggleWatch }),
-                React.createElement("label", { htmlFor: 'watch', onClick: this.toggleWatch }, "watch")),
-            React.createElement("div", { style: { display: 'flex', flexGrow: 1 } },
-                this.renderTable(),
-                this.renderImage(),
-                this.renderVideo(),
-                this.renderMusic())));
-    };
-    return FilesContainerView;
-}(React.Component));
-exports.FilesContainerView = FilesContainerView;
-var FilesContainerConfig = /** @class */ (function (_super) {
-    __extends(FilesContainerConfig, _super);
-    function FilesContainerConfig() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    FilesContainerConfig.prototype.componentDidMount = function () {
-        var dbs = this.props.objects([database_1.Database]);
-        this.config.source = dbs[0];
-        this.setState({ dbs: dbs, dbId: dbs[0].holder.getID() });
-    };
-    FilesContainerConfig.prototype.render = function () {
-        var _this = this;
-        return (React.createElement("div", { style: { display: 'flex' } },
-            React.createElement("table", { style: { flexGrow: 1 } },
-                React.createElement("tr", null,
-                    React.createElement("td", null, " database "),
-                    React.createElement("td", null,
-                        React.createElement("select", { style: { width: '100%' }, value: this.state.dbId, onChange: function (evt) {
-                                var dbId = evt.currentTarget.value;
-                                _this.config.source = _this.state.dbs.find(function (db) { return db.holder.getID() == dbId; });
-                                _this.setState({ dbId: dbId });
-                            } }, (this.state.dbs || []).map(function (db, i) {
-                            return (React.createElement("option", { key: i, value: db.holder.getID(), title: objio_1.OBJIOItem.getClass(db).TYPE_ID }, db.getName()));
-                        })))))));
-    };
-    return FilesContainerConfig;
-}(config_1.ConfigBase));
-exports.FilesContainerConfig = FilesContainerConfig;
-//# sourceMappingURL=files-container-view.js.map
-
-/***/ }),
-
 /***/ "../objio-object/view/index.js":
 /*!*************************************!*\
   !*** ../objio-object/view/index.js ***!
@@ -7083,11 +4728,8 @@ var React = __webpack_require__(/*! react */ "react");
 var file_object_view_1 = __webpack_require__(/*! ./file-object-view */ "../objio-object/view/file-object-view.js");
 var table_file_1 = __webpack_require__(/*! ../client/table-file */ "../objio-object/client/table-file/index.js");
 var video_file_view_1 = __webpack_require__(/*! ./video-file-view */ "../objio-object/view/video-file-view.js");
-var doc_table_view_1 = __webpack_require__(/*! ./doc-table-view */ "../objio-object/view/doc-table-view.js");
 var config_1 = __webpack_require__(/*! ./config */ "../objio-object/view/config.js");
 exports.registerViews = config_1.registerViews;
-var files_container_view_1 = __webpack_require__(/*! ./files-container-view */ "../objio-object/view/files-container-view.js");
-var database_1 = __webpack_require__(/*! ../client/database/database */ "../objio-object/client/database/database.js");
 var database_holder_view_1 = __webpack_require__(/*! ./database-holder-view */ "../objio-object/view/database-holder-view.js");
 var sprite_sheet_1 = __webpack_require__(/*! ./sprite-sheet */ "../objio-object/view/sprite-sheet.js");
 __webpack_require__(/*! ts-react-ui/typings */ "react");
@@ -7104,7 +4746,7 @@ var project_1 = __webpack_require__(/*! ./project */ "../objio-object/view/proje
 var server_view_1 = __webpack_require__(/*! ./server-view */ "../objio-object/view/server-view.js");
 var video_concat_view_1 = __webpack_require__(/*! ./video-concat-view */ "../objio-object/view/video-concat-view.js");
 var image_file_1 = __webpack_require__(/*! ../client/image-file */ "../objio-object/client/image-file.js");
-var table2_1 = __webpack_require__(/*! ../view/table2 */ "../objio-object/view/table2.js");
+var database_table_1 = __webpack_require__(/*! ../view/database-table */ "../objio-object/view/database-table.js");
 var file_storage_1 = __webpack_require__(/*! ./file-storage */ "../objio-object/view/file-storage.js");
 function getObjectsToCreate() {
     return [
@@ -7116,7 +4758,7 @@ function getObjectsToCreate() {
             name: 'table',
             desc: 'table object',
             icon: React.createElement(icon_1.Icon, { src: TableIcon }),
-            create: function () { return new table2_1.Table2(); }
+            create: function () { return new database_table_1.DatabaseTable(); }
         }, {
             name: 'file-storage',
             desc: 'files storage',
@@ -7177,16 +4819,6 @@ function getViews() {
         desc: 'Video concatenation'
     });
     config_1.registerViews({
-        classObj: files_container_view_1.FilesContainer,
-        views: [{
-                view: function (props) { return React.createElement(files_container_view_1.FilesContainerView, __assign({}, props)); }
-            }],
-        config: function (props) { return React.createElement(files_container_view_1.FilesContainerConfig, __assign({}, props)); },
-        flags: ['create-wizard'],
-        desc: 'Files container object',
-        sources: [[database_1.Database]]
-    });
-    config_1.registerViews({
         classObj: sprite_sheet_1.SpriteSheet,
         views: [{
                 view: function (props) { return React.createElement(sprite_sheet_1.SpriteSheetView, __assign({ key: props.model.holder.getID() }, props)); }
@@ -7216,25 +4848,23 @@ function getViews() {
             }]
     });
     config_1.registerViews({
-        classObj: table2_1.Table2,
+        classObj: database_table_1.DatabaseTable,
         icons: { item: React.createElement(icon_1.Icon, { src: TableIcon }) },
         views: [{
-                view: function (props) { return React.createElement(table2_1.Table2View, __assign({}, props)); }
+                view: function (props) { return React.createElement(database_table_1.DatabaseTableView, __assign({}, props)); }
             }]
     });
     return [
         project_1.Project,
-        files_container_view_1.FilesContainer,
         file_object_view_1.FileObject,
         table_file_1.CSVTableFile,
         table_file_1.JSONTableFile,
         video_file_view_1.VideoFileObject,
-        doc_table_view_1.DocTable,
         sprite_sheet_1.SpriteSheet,
         video_concat_view_1.VideoConcat,
         image_file_1.ImageFile,
         database_holder_view_1.DatabaseHolder,
-        table2_1.Table2,
+        database_table_1.DatabaseTable,
         file_storage_1.FileStorage
     ];
 }
@@ -8206,90 +5836,6 @@ exports.TableFileView = TableFileView;
 
 /***/ }),
 
-/***/ "../objio-object/view/table2.js":
-/*!**************************************!*\
-  !*** ../objio-object/view/table2.js ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var table2_1 = __webpack_require__(/*! ../client/database/table2 */ "../objio-object/client/database/table2.js");
-exports.Table2 = table2_1.Table2;
-var grid_1 = __webpack_require__(/*! ts-react-ui/grid/grid */ "../ts-react-ui/grid/grid.js");
-var Table2View = /** @class */ (function (_super) {
-    __extends(Table2View, _super);
-    function Table2View() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = {};
-        _this.notify = function () {
-            _this.setState({});
-        };
-        _this.renderCell = function (props) {
-            var row = _this.props.model.getGrid().getRowOrLoad(props.row);
-            if (!row)
-                return null;
-            return (React.createElement("span", null, row.cell[props.col]));
-        };
-        _this.renderHeader = function (props) {
-            var table = _this.props.model.getTableInfo();
-            if (!table || !table.columns[props.col])
-                return null;
-            return (React.createElement("span", null, table.columns[props.col].colName));
-        };
-        return _this;
-    }
-    Table2View.prototype.componentDidMount = function () {
-        this.props.model.holder.subscribe(this.notify);
-    };
-    Table2View.prototype.componentWillUnmount = function () {
-        this.props.model.holder.unsubscribe(this.notify);
-    };
-    Table2View.prototype.renderNotConfigured = function () {
-        return 'object not configured properly';
-    };
-    Table2View.prototype.renderTable = function () {
-        var grid = this.props.model.getGrid();
-        if (!grid)
-            return null;
-        return (React.createElement("div", { style: { position: 'relative', flexGrow: 1 } },
-            React.createElement(grid_1.Grid, { model: grid, renderHeader: this.renderHeader, renderCell: this.renderCell, onScrollToBottom: function () {
-                    grid.loadNext();
-                } })));
-    };
-    Table2View.prototype.render = function () {
-        var model = this.props.model;
-        var jsx;
-        if (!model.getDatabase() || !model.getTableName() || !model.isTableValid())
-            jsx = this.renderNotConfigured();
-        else if (!model.isStatusInProgess())
-            jsx = this.renderTable();
-        return (React.createElement("div", { style: { position: 'relative', flexGrow: 1 } },
-            React.createElement("div", { style: { position: 'absolute', left: 0, top: 0, right: 0, bottom: 0, display: 'flex' } }, jsx)));
-    };
-    return Table2View;
-}(React.Component));
-exports.Table2View = Table2View;
-//# sourceMappingURL=table2.js.map
-
-/***/ }),
-
 /***/ "../objio-object/view/video-concat-view.js":
 /*!*************************************************!*\
   !*** ../objio-object/view/video-concat-view.js ***!
@@ -8691,15 +6237,15 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var database_holder_1 = __webpack_require__(/*! objio-object/base/database-holder */ "../objio-object/base/database-holder.js");
+var database_1 = __webpack_require__(/*! objio-object/base/database/database */ "../objio-object/base/database/database.js");
 var DatabaseBase = /** @class */ (function (_super) {
     __extends(DatabaseBase, _super);
     function DatabaseBase() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    DatabaseBase.TYPE_ID = 'SQLT3Database';
+    DatabaseBase.TYPE_ID = 'SQLITE3-DATABASE';
     return DatabaseBase;
-}(database_holder_1.DatabaseBase2));
+}(database_1.DatabaseBase));
 exports.DatabaseBase = DatabaseBase;
 //# sourceMappingURL=database.js.map
 
@@ -8727,113 +6273,19 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var database_1 = __webpack_require__(/*! objio-object/client/database */ "../objio-object/client/database/index.js");
+var database_1 = __webpack_require__(/*! objio-object/base/database/database */ "../objio-object/base/database/database.js");
+var database_2 = __webpack_require__(/*! ../base/database */ "../objio-sqlite-table/base/database.js");
 var Database = /** @class */ (function (_super) {
     __extends(Database, _super);
     function Database() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Database.TYPE_ID = 'SQLite3Database';
-    Database.SERIALIZE = function () { return (__assign({}, database_1.Database.SERIALIZE())); };
+    Database.TYPE_ID = database_2.DatabaseBase.TYPE_ID;
     return Database;
-}(database_1.Database));
+}(database_1.DatabaseBaseClient));
 exports.Database = Database;
 //# sourceMappingURL=database.js.map
-
-/***/ }),
-
-/***/ "../objio-sqlite-table/client/database2.js":
-/*!*************************************************!*\
-  !*** ../objio-sqlite-table/client/database2.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Promise) {
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-// import { Datab} from 'objio-object/base/database-holder';
-var database_1 = __webpack_require__(/*! ../base/database */ "../objio-sqlite-table/base/database.js");
-var Database2 = /** @class */ (function (_super) {
-    __extends(Database2, _super);
-    function Database2() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Database2.prototype.loadTableList = function () {
-        return this.holder.invokeMethod({ method: 'loadTableList', args: {} });
-    };
-    Database2.prototype.loadTableGuid = function (args) {
-        return this.holder.invokeMethod({ method: 'loadTableGuid', args: args });
-    };
-    Database2.prototype.loadTableRowsNum = function (args) {
-        return this.holder.invokeMethod({ method: 'loadTableRowsNum', args: args });
-    };
-    Database2.prototype.loadTableData = function (args) {
-        return this.holder.invokeMethod({ method: 'loadTableData', args: args });
-    };
-    Database2.prototype.createTable = function (args) {
-        return this.holder.invokeMethod({ method: 'createTable', args: args });
-    };
-    Database2.prototype.deleteTable = function (args) {
-        return this.holder.invokeMethod({ method: 'deleteTable', args: args });
-    };
-    Database2.prototype.pushData = function (args) {
-        return this.holder.invokeMethod({ method: 'pushData', args: args });
-    };
-    Database2.prototype.deleteData = function (args) {
-        return this.holder.invokeMethod({ method: 'deleteData', args: args });
-    };
-    Database2.prototype.updateData = function (args) {
-        return this.holder.invokeMethod({ method: 'updateData', args: args });
-    };
-    Database2.prototype.loadAggrData = function (args) {
-        return this.holder.invokeMethod({ method: 'loadAggrData', args: args });
-    };
-    Database2.prototype.isRemote = function () {
-        return false;
-    };
-    Database2.prototype.getConnClasses = function () {
-        return [];
-    };
-    Database2.prototype.getDatabaseList = function () {
-        return Promise.reject('not implemented');
-    };
-    Database2.prototype.setDatabase = function () {
-        return Promise.reject('not implemented');
-    };
-    Database2.prototype.setConnection = function () {
-        return Promise.reject('not implemented');
-    };
-    return Database2;
-}(database_1.DatabaseBase));
-exports.Database2 = Database2;
-//# sourceMappingURL=database2.js.map
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! bluebird */ "bluebird")))
 
 /***/ }),
 
@@ -8848,11 +6300,9 @@ exports.Database2 = Database2;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var database_1 = __webpack_require__(/*! ./database */ "../objio-sqlite-table/client/database.js");
-var database2_1 = __webpack_require__(/*! ./database2 */ "../objio-sqlite-table/client/database2.js");
 function getClasses() {
     return [
-        database_1.Database,
-        database2_1.Database2
+        database_1.Database
     ];
 }
 exports.getClasses = getClasses;
@@ -8883,7 +6333,7 @@ module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGlu
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "react");
 var database_holder_1 = __webpack_require__(/*! objio-object/client/database/database-holder */ "../objio-object/client/database/database-holder.js");
-var database2_1 = __webpack_require__(/*! ../client/database2 */ "../objio-sqlite-table/client/database2.js");
+var database_1 = __webpack_require__(/*! ../client/database */ "../objio-sqlite-table/client/database.js");
 var icon_1 = __webpack_require__(/*! ts-react-ui/icon */ "../ts-react-ui/icon.js");
 __webpack_require__(/*! ts-react-ui/typings */ "react");
 var SQLITEIcon = __webpack_require__(/*! ../images/sqlite.svg */ "../objio-sqlite-table/images/sqlite.svg");
@@ -8893,7 +6343,7 @@ function getObjectsToCreate() {
             name: 'sqlite3',
             desc: 'sqlite3 database',
             icon: React.createElement(icon_1.Icon, { src: SQLITEIcon }),
-            create: function () { return new database_holder_1.DatabaseHolder({ impl: new database2_1.Database2() }); }
+            create: function () { return new database_holder_1.DatabaseHolder({ impl: new database_1.Database() }); }
         }
     ];
 }
@@ -30480,96 +27930,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "../ts-react-ui/_list.scss":
-/*!*********************************!*\
-  !*** ../ts-react-ui/_list.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../objio-client/node_modules/css-loader!../objio-client/node_modules/sass-loader/lib/loader.js!./_list.scss */ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../ts-react-ui/_list.scss");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../objio-client/node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "../ts-react-ui/_range-slider.scss":
-/*!*****************************************!*\
-  !*** ../ts-react-ui/_range-slider.scss ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../objio-client/node_modules/css-loader!../objio-client/node_modules/sass-loader/lib/loader.js!./_range-slider.scss */ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../ts-react-ui/_range-slider.scss");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../objio-client/node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "../ts-react-ui/_scrollbar.scss":
-/*!**************************************!*\
-  !*** ../ts-react-ui/_scrollbar.scss ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../objio-client/node_modules/css-loader!../objio-client/node_modules/sass-loader/lib/loader.js!./_scrollbar.scss */ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../ts-react-ui/_scrollbar.scss");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../objio-client/node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "../ts-react-ui/app-comp-layout/app-component.js":
 /*!*******************************************************!*\
   !*** ../ts-react-ui/app-comp-layout/app-component.js ***!
@@ -31439,72 +28799,6 @@ exports.Droppable = Droppable;
 
 /***/ }),
 
-/***/ "../ts-react-ui/drop-down-loadable.js":
-/*!********************************************!*\
-  !*** ../ts-react-ui/drop-down-loadable.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Promise) {
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var drop_down_1 = __webpack_require__(/*! ./drop-down */ "../ts-react-ui/drop-down.js");
-var list_view_loadable_1 = __webpack_require__(/*! ./list-view-loadable */ "../ts-react-ui/list-view-loadable.js");
-var DropDownLoadable = /** @class */ (function (_super) {
-    __extends(DropDownLoadable, _super);
-    function DropDownLoadable(props) {
-        var _this = _super.call(this, props) || this;
-        _this.renderList = function (props) {
-            return (React.createElement(list_view_loadable_1.ListViewLoadable, __assign({}, props, { model: _this.state.model, totalValues: _this.props.totalValues, itemsPerLoad: _this.props.itemsPerLoad, onLoadNext: _this.props.onLoadNext })));
-        };
-        _this.onFilter = function (filter) {
-            var p = _this.props.onFilter(filter);
-            return p.then(function (values) {
-                _this.state.model.setValues(values);
-                return Promise.reject(null);
-            });
-        };
-        var model = props.model || new list_view_loadable_1.ListViewLoadableModel();
-        _this.state = { model: model };
-        return _this;
-    }
-    DropDownLoadable.prototype.render = function () {
-        return (React.createElement(drop_down_1.DropDown, __assign({}, this.props, { listModel: this.state.model, renderList: this.renderList, onFilter: this.props.onFilter ? this.onFilter : null })));
-    };
-    return DropDownLoadable;
-}(React.Component));
-exports.DropDownLoadable = DropDownLoadable;
-//# sourceMappingURL=drop-down-loadable.js.map
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! bluebird */ "bluebird")))
-
-/***/ }),
-
 /***/ "../ts-react-ui/drop-down.js":
 /*!***********************************!*\
   !*** ../ts-react-ui/drop-down.js ***!
@@ -31698,8 +28992,8 @@ var DropDown = /** @class */ (function (_super) {
         if (this.state.showInput) {
             return this.renderInput();
         }
-        var select = this.getValue();
-        return (React.createElement("div", { className: classes.input }, select ? (this.renderItem(select)) : (React.createElement("div", { style: { width: 0, color: 'silver' } }, "-- nothing --"))));
+        var select = this.getValue() || DropDown.NOTHING_SELECT;
+        return (React.createElement("div", { className: classes.input }, this.renderItem(select)));
     };
     DropDown.prototype.isFilterable = function () {
         return this.props.onFilter != null;
@@ -31723,13 +29017,17 @@ var DropDown = /** @class */ (function (_super) {
         var select = this.getValue();
         var title = select && (typeof select.render == 'string' && select.render || select.value) || '';
         return (React.createElement("div", { tabIndex: this.props.disabled ? null : 0, title: title, ref: this.ref, className: common_1.className(classes.dropDown, this.isListShown() && classes.showList, this.props.disabled && classes.disabled, this.hasFocus() && classes.focus), style: style, onKeyDown: this.onKeyDown },
-            React.createElement(popover_1.Popover, { key: this.state.key, autoFocus: false, popoverWillOpen: function () {
+            React.createElement(popover_1.Popover, { key: this.state.key, autoFocus: false, disabled: this.props.disabled, popoverWillOpen: function () {
                     _this.setState({ showList: true, showInput: _this.props.onFilter != null });
                 }, popoverWillClose: function () {
                     _this.setState({ showList: false, showInput: false, key: _this.state.key + 1 });
                 } },
                 this.renderCtrl(),
                 this.renderList(this.props.width))));
+    };
+    DropDown.NOTHING_SELECT = {
+        value: '-- nothing --',
+        render: function (item) { return (React.createElement("div", { style: { width: 0, color: 'silver' } }, item.value)); }
     };
     DropDown.defaultProps = {
         itemsPerPage: 10
@@ -33003,131 +30301,6 @@ exports.Layout = Layout;
 
 /***/ }),
 
-/***/ "../ts-react-ui/list-view-loadable.js":
-/*!********************************************!*\
-  !*** ../ts-react-ui/list-view-loadable.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var list_view_1 = __webpack_require__(/*! ./list-view */ "../ts-react-ui/list-view.js");
-var ListViewLoadableModel = /** @class */ (function (_super) {
-    __extends(ListViewLoadableModel, _super);
-    function ListViewLoadableModel() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    ListViewLoadableModel.prototype.appendValues = function (values) {
-        var _a;
-        (_a = this.values).push.apply(_a, values);
-        var focus = this.focus;
-        this.setValues(this.values, true);
-        this.focus = focus;
-    };
-    ListViewLoadableModel.prototype.getCount = function () {
-        return this.values.length;
-    };
-    return ListViewLoadableModel;
-}(list_view_1.ListViewModel));
-exports.ListViewLoadableModel = ListViewLoadableModel;
-var ListViewLoadable = /** @class */ (function (_super) {
-    __extends(ListViewLoadable, _super);
-    function ListViewLoadable(props) {
-        var _this = _super.call(this, props) || this;
-        _this.ref = React.createRef();
-        _this.scrollTop = null;
-        var model = props.model || new ListViewLoadableModel();
-        _this.state = { model: model };
-        if (!props.values || props.values.length == 0) {
-            _this.loadNext();
-        }
-        return _this;
-    }
-    ListViewLoadable.prototype.loadNext = function () {
-        var _this = this;
-        var totalValues = this.props.totalValues();
-        if (this.loading || this.state.model.getCount() >= totalValues)
-            return false;
-        var from = this.state.model.getCount();
-        var count = this.props.itemsPerLoad;
-        count = Math.min(from + count, totalValues) - from;
-        this.loading = this.props.onLoadNext(from, count)
-            .then(function (values) {
-            _this.loading = null;
-            _this.state.model.appendValues(values);
-        })
-            .catch(function () {
-            _this.loading = null;
-        });
-        return true;
-    };
-    ListViewLoadable.prototype.onScroll = function (e) {
-        var el = e.currentTarget;
-        if (this.scrollTop != null) {
-            el.scrollTop = this.scrollTop;
-            this.scrollTop = null;
-        }
-        else if (Math.round(el.scrollHeight - el.scrollTop - el.offsetHeight) <= 0) {
-            if (this.loadNext()) {
-                this.scrollTop = e.currentTarget.scrollTop;
-            }
-        }
-    };
-    ListViewLoadable.prototype.onKeyDown = function (e) {
-        this.ref.current.onKeyDown(e);
-    };
-    ListViewLoadable.prototype.scrollToSelect = function () {
-        this.ref.current.scrollToSelect();
-    };
-    ListViewLoadable.prototype.getModel = function () {
-        return this.state.model;
-    };
-    ListViewLoadable.prototype.reload = function () {
-        this.state.model.setValues([], true);
-        this.loadNext();
-    };
-    ListViewLoadable.prototype.render = function () {
-        var _this = this;
-        var props = __assign({}, this.props, { model: this.state.model });
-        return (React.createElement(list_view_1.ListView, __assign({ ref: this.ref }, props, { onScroll: function (e) { return _this.onScroll(e); } })));
-    };
-    ListViewLoadable.defaultProps = {
-        itemsPerLoad: 50
-    };
-    return ListViewLoadable;
-}(React.Component));
-exports.ListViewLoadable = ListViewLoadable;
-//# sourceMappingURL=list-view-loadable.js.map
-
-/***/ }),
-
 /***/ "../ts-react-ui/list-view.js":
 /*!***********************************!*\
   !*** ../ts-react-ui/list-view.js ***!
@@ -33556,212 +30729,6 @@ exports.ListView = ListView;
 
 /***/ }),
 
-/***/ "../ts-react-ui/list.js":
-/*!******************************!*\
-  !*** ../ts-react-ui/list.js ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var common_1 = __webpack_require__(/*! ./common/common */ "../ts-react-ui/common/common.js");
-var scrollbar_1 = __webpack_require__(/*! ./scrollbar */ "../ts-react-ui/scrollbar.js");
-var keycode_1 = __webpack_require__(/*! ./common/keycode */ "../ts-react-ui/common/keycode.js");
-var list_1 = __webpack_require__(/*! ./model/list */ "../ts-react-ui/model/list.js");
-exports.RenderListModel = list_1.RenderListModel;
-var start_dragging_1 = __webpack_require__(/*! ./common/start-dragging */ "../ts-react-ui/common/start-dragging.js");
-var subscriber_1 = __webpack_require__(/*! ./subscriber */ "../ts-react-ui/subscriber.js");
-__webpack_require__(/*! ./_list.scss */ "../ts-react-ui/_list.scss");
-var classes = {
-    list: 'list-ctrl',
-    border: 'list-ctrl-border',
-    content: 'list-ctrl-content',
-    column: 'list-ctrl-column',
-    row: 'list-ctrl-row',
-    header: 'list-ctrl-header',
-    selRow: 'list-ctrl-selrow',
-    cell: 'list-ctrl-cell'
-};
-var List = /** @class */ (function (_super) {
-    __extends(List, _super);
-    function List(props) {
-        var _this = _super.call(this, props) || this;
-        _this.ctrl = React.createRef();
-        _this.content = React.createRef();
-        _this.onKeyDown = function (event) {
-            if (_this.ctrl.current != document.activeElement)
-                return;
-            var model = _this.props.model;
-            event.preventDefault();
-            event.stopPropagation();
-            var selRow = model.getSelRow();
-            var selFirst = model.getSelectFirst();
-            var dir = 0;
-            if (event.keyCode == keycode_1.KeyCode.ARROW_UP) {
-                dir = -1;
-            }
-            else if (event.keyCode == keycode_1.KeyCode.ARROW_DOWN) {
-                dir = 1;
-            }
-            if (dir) {
-                if (model.getSelType() == 'none')
-                    model.setSelectFirst(selFirst + dir);
-                else
-                    model.setSelRow(selRow + dir);
-            }
-            if (event.keyCode == keycode_1.KeyCode.PAGE_UP) {
-                selFirst -= model.getFullVisibleCount();
-                model.setSelectFirst(selFirst);
-                model.setSelRow(selFirst);
-            }
-            else if (event.keyCode == keycode_1.KeyCode.PAGE_DOWN) {
-                selFirst += model.getFullVisibleCount();
-                model.setSelectFirst(selFirst);
-                model.setSelRow(selFirst);
-            }
-            _this.props.onKeyDown && _this.props.onKeyDown(event);
-        };
-        _this.onWheel = function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            var first = _this.props.model.getSelectFirst();
-            if (event.deltaY < 0)
-                first -= 1;
-            else
-                first += 1;
-            _this.props.model.setSelectFirst(first);
-        };
-        _this.state = {
-            model: props.model
-        };
-        return _this;
-    }
-    List.prototype.componentDidMount = function () {
-        _super.prototype.componentDidMount.call(this);
-        this.state.model.setHeight(this.props.height);
-    };
-    List.prototype.renderHeader = function (col) {
-        var _this = this;
-        var model = this.state.model;
-        var height = model.getHeaderSize();
-        var row = col.name;
-        if (col.renderHeader)
-            row = col.renderHeader(row, col);
-        row = (React.createElement("div", { className: classes.cell }, row));
-        row = (React.createElement("div", { className: classes.header, key: 'hdr-' + col.name, style: { height: height, lineHeight: height + 'px' } },
-            row,
-            React.createElement("div", { onMouseDown: function (evt) {
-                    var fullSz = _this.props.width;
-                    var colLeft = evt.currentTarget.parentElement.parentElement;
-                    var colRight = colLeft.nextSibling;
-                    var sizeLeft = colLeft.offsetWidth;
-                    var sizeRight = colRight.offsetWidth;
-                    var cols = model.getColumns();
-                    var colIdx = cols.indexOf(col);
-                    var col2 = cols[colIdx + 1];
-                    var summOfSize = sizeLeft + sizeRight;
-                    start_dragging_1.startDragging({ x: sizeLeft, y: 0 }, {
-                        onDragging: function (evt) {
-                            var newSizes = [evt.x, summOfSize - evt.x];
-                            col.grow = newSizes[0] * cols.length / fullSz;
-                            col2.grow = newSizes[1] * cols.length / fullSz;
-                            _this.setState({});
-                        }
-                    })(evt.nativeEvent);
-                }, style: { position: 'absolute', width: 5, height: height, right: 0, cursor: 'w-resize' } })));
-        return row;
-    };
-    List.prototype.renderRow = function (args) {
-        var model = this.state.model;
-        var height = model.getItemHeight();
-        var row = args.data || '...';
-        if (args.column && args.data && args.column.render)
-            row = args.column.render({
-                item: args.data,
-                column: args.column,
-                rowIdx: args.rowIdxAbs,
-                colIdx: args.colIdx
-            });
-        if (args.column && args.column.width != -1)
-            row = (React.createElement("div", { className: classes.cell }, row));
-        var className = common_1.className(classes.row, model.isSelect(args.rowIdxAbs) && classes.selRow);
-        return (React.createElement("div", { onClick: function (event) {
-                model.setSelRow(args.rowIdxAbs, event.ctrlKey, event.shiftKey);
-            }, className: className, key: args.rowIdxRel, style: { height: height } }, row));
-    };
-    List.prototype.renderRows = function () {
-        var model = this.state.model;
-        var arr = Array();
-        if (model.getItemsCount() > 0)
-            arr = model.getItems(model.getSelectFirst(), model.getVisibleCount());
-        var columns = model.getColumns();
-        var cols = Array();
-        for (var c = 0; c < Math.max(1, columns.length); c++) {
-            var column = columns[c];
-            var rows = Array();
-            if (column && model.getHeaderSize()) {
-                rows.push(this.renderHeader(column));
-            }
-            for (var n = 0; n < model.getVisibleCount(); n++) {
-                var data = arr ? arr[n] : null;
-                rows.push(this.renderRow({
-                    column: column,
-                    data: data,
-                    colIdx: c,
-                    rowIdxRel: n,
-                    rowIdxAbs: n + model.getSelectFirst()
-                }));
-            }
-            var colStyle = {};
-            if (column && column.width) {
-                if (column.width != -1)
-                    colStyle.width = column.width;
-                colStyle.flexGrow = 0;
-            }
-            if (column && column.grow) {
-                delete colStyle.width;
-                colStyle.flexGrow = column.grow;
-            }
-            cols.push(React.createElement("div", { className: classes.column, key: 'col-' + c, style: colStyle }, rows));
-        }
-        return (React.createElement("div", { className: classes.content, ref: this.content }, cols));
-    };
-    List.prototype.componentWillReceiveProps = function (props) {
-        if (props.height != this.state.model.getHeight())
-            this.state.model.setHeight(props.height);
-        if (props.width != this.state.model.getWidth())
-            this.state.model.setWidth(props.width);
-    };
-    List.prototype.render = function () {
-        var _a = this.props, width = _a.width, height = _a.height, model = _a.model;
-        var className = common_1.className(this.props.className || classes.list, this.props.extraClass, this.props.border && classes.border);
-        return (React.createElement("div", { ref: this.ctrl, tabIndex: 1, className: className, style: { width: width, height: height }, onKeyDown: this.onKeyDown, onWheel: this.onWheel },
-            this.renderRows(),
-            React.createElement(scrollbar_1.Scrollbar, { itemsCount: model.getItemsCount(), itemHeight: model.getItemHeight(), itemsHeight: height - model.getHeaderSize(), height: height, firstItem: model.getSelectFirst(), setSelectFirst: function (first) { return model.setSelectFirst(first); } })));
-    };
-    return List;
-}(subscriber_1.Subscriber));
-exports.List = List;
-//# sourceMappingURL=list.js.map
-
-/***/ }),
-
 /***/ "../ts-react-ui/model/layout.js":
 /*!**************************************!*\
   !*** ../ts-react-ui/model/layout.js ***!
@@ -34145,457 +31112,6 @@ var LayoutModel = /** @class */ (function (_super) {
 }(publisher_1.Publisher));
 exports.LayoutModel = LayoutModel;
 //# sourceMappingURL=layout.js.map
-
-/***/ }),
-
-/***/ "../ts-react-ui/model/list.js":
-/*!************************************!*\
-  !*** ../ts-react-ui/model/list.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Promise) {
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var publisher_1 = __webpack_require__(/*! objio/common/publisher */ "../objio/common/publisher.js");
-var common_1 = __webpack_require__(/*! ../common/common */ "../ts-react-ui/common/common.js");
-function inRange(tgt, src) {
-    return tgt.from >= src.from && tgt.from + tgt.count <= src.from + src.count;
-}
-var ListModel = /** @class */ (function (_super) {
-    __extends(ListModel, _super);
-    function ListModel(count) {
-        var _this = _super.call(this) || this;
-        _this.itemsCount = 0;
-        _this.cacheRange = null;
-        _this.loadingRange = null; // null = nothing is loading
-        _this.cache = Array();
-        _this.columns = Array();
-        _this.bufferSize = 1000;
-        _this.itemsCount = count;
-        return _this;
-    }
-    ListModel.prototype.clearCache = function (notify) {
-        this.cache = [];
-        this.cacheRange = null;
-        notify && this.delayedNotify();
-    };
-    ListModel.prototype.setBufferSize = function (size) {
-        this.bufferSize = size;
-    };
-    ListModel.prototype.getBufferSize = function () {
-        return this.bufferSize;
-    };
-    ListModel.prototype.setColumns = function (columns) {
-        if (JSON.stringify(columns) == JSON.stringify(this.columns))
-            return;
-        this.columns = columns;
-        this.delayedNotify();
-    };
-    ListModel.prototype.getColumns = function () {
-        return this.columns;
-    };
-    ListModel.prototype.reload = function () {
-        this.cache = [];
-        this.cacheRange = null;
-        this.delayedNotify();
-    };
-    ListModel.prototype.getItems = function (from, count) {
-        var _this = this;
-        if (count == 0)
-            return null;
-        if (this.cacheRange && inRange({ from: from, count: count }, this.cacheRange))
-            return this.cache.slice(from - this.cacheRange.from, from - this.cacheRange.from + count);
-        if (this.loadingRange && inRange({ from: from, count: count }, this.loadingRange))
-            return null; // we don't have loaded yet
-        var HALF_ITEMS_PER_LOAD = Math.ceil(this.bufferSize / 2);
-        this.cacheRange = null;
-        var loadingFrom = Math.max(0, from - HALF_ITEMS_PER_LOAD);
-        var loadingCount = Math.min(loadingFrom + HALF_ITEMS_PER_LOAD * 2, this.itemsCount) - loadingFrom;
-        this.loadingRange = {
-            from: loadingFrom,
-            count: loadingCount
-        };
-        if (this.cancelable)
-            this.cancelable.cancel();
-        var task = this.handler.loadItems(this.loadingRange.from, this.loadingRange.count);
-        var updateData = (function (data) {
-            _this.cancelable = null;
-            _this.cacheRange = {
-                from: _this.loadingRange.from,
-                count: data.length
-            };
-            _this.loadingRange = null;
-            _this.cache = data;
-            _this.delayedNotify();
-        });
-        if (task instanceof Promise) {
-            this.cancelable = task;
-            this.cancelable.then(updateData);
-            return null;
-        }
-        updateData(task);
-        return this.cache.slice(from - this.cacheRange.from, from - this.cacheRange.from + count);
-    };
-    ListModel.prototype.setItemsCount = function (count) {
-        if (count == this.itemsCount)
-            return;
-        this.itemsCount = count;
-        this.delayedNotify();
-    };
-    ListModel.prototype.getItemsCount = function () {
-        return this.itemsCount;
-    };
-    ListModel.prototype.setHandler = function (handler) {
-        this.handler = handler;
-    };
-    return ListModel;
-}(publisher_1.Publisher));
-exports.ListModel = ListModel;
-var RenderListModel = /** @class */ (function (_super) {
-    __extends(RenderListModel, _super);
-    function RenderListModel(count, itemSize) {
-        var _this = _super.call(this, count) || this;
-        _this.firstSelItem = 0;
-        _this.fullVisItems = 0;
-        _this.partVisItems = 0;
-        _this.height = 0;
-        _this.width = 0;
-        _this.itemSize = 20;
-        _this.selRow = -1;
-        _this.headerSize = 25;
-        _this.header = true;
-        _this.sel = new Set();
-        _this.selType = 'multi';
-        _this.itemSize = itemSize || _this.itemSize;
-        return _this;
-    }
-    RenderListModel.prototype.getItemID = function (itemIdx) {
-        var id = '' + itemIdx;
-        if (this.handler.getItemID)
-            id = this.handler.getItemID(this.cache[itemIdx - this.firstSelItem]);
-        return id;
-    };
-    RenderListModel.prototype.isSelect = function (itemIdx) {
-        return this.sel.has(this.getItemID(itemIdx));
-    };
-    RenderListModel.prototype.clearSel = function () {
-        this.sel.clear();
-        this.delayedNotify();
-    };
-    RenderListModel.prototype.getSel = function () {
-        return Array.from(this.sel.values());
-    };
-    RenderListModel.prototype.setSelType = function (type) {
-        this.selType = type;
-        if (this.selType == 'single' && this.sel.size > 1) {
-            var selRow = this.selRow;
-            this.selRow = -1;
-            this.setSelRow(selRow);
-        }
-    };
-    RenderListModel.prototype.getSelType = function () {
-        return this.selType;
-    };
-    RenderListModel.prototype.getSelCount = function () {
-        return this.sel.size;
-    };
-    RenderListModel.prototype.setItemsCount = function (count) {
-        _super.prototype.setItemsCount.call(this, count);
-        this.setHeight(this.height);
-    };
-    RenderListModel.prototype.getHeaderSize = function () {
-        if (!this.header || this.columns.length == 0)
-            return 0;
-        return this.headerSize;
-    };
-    RenderListModel.prototype.setHeaderSize = function (size) {
-        if (this.headerSize == size)
-            return;
-        this.headerSize = size;
-        this.setHeight(this.height);
-    };
-    RenderListModel.prototype.setHeader = function (hdr) {
-        this.header = hdr;
-        this.delayedNotify();
-    };
-    RenderListModel.prototype.getHeader = function () {
-        return this.header;
-    };
-    RenderListModel.prototype.getSelRow = function () {
-        return this.selRow;
-    };
-    RenderListModel.prototype.setSelRow = function (row, ctrl, shift) {
-        row = common_1.clamp(row, [0, this.itemsCount - 1]);
-        var alreadySelect = this.isSelect(row);
-        if (alreadySelect && !ctrl && this.selRow == row)
-            return;
-        if (row < this.firstSelItem)
-            this.firstSelItem = row;
-        else if (row >= this.firstSelItem + this.fullVisItems - 1)
-            this.firstSelItem = Math.max(0, row - this.fullVisItems + 1);
-        if (!ctrl || this.selType == 'single')
-            this.sel.clear();
-        var id = this.getItemID(row);
-        if (this.selType != 'none') {
-            if (ctrl && alreadySelect)
-                this.sel.delete(id);
-            else {
-                if (shift && this.selType == 'multi') {
-                    for (var n = Math.min(this.selRow, row); n < Math.max(this.selRow, row); n++)
-                        this.sel.add(this.getItemID(n));
-                }
-                else {
-                    this.sel.add(id);
-                }
-            }
-        }
-        this.selRow = row;
-        this.delayedNotify({ type: 'select-row' });
-    };
-    RenderListModel.prototype.getItemHeight = function () {
-        return this.itemSize;
-    };
-    RenderListModel.prototype.setWidth = function (size) {
-        this.width = size;
-    };
-    RenderListModel.prototype.getWidth = function () {
-        return this.width;
-    };
-    RenderListModel.prototype.setHeight = function (size) {
-        this.height = size;
-        var visItems = (this.height - this.getHeaderSize()) / this.itemSize;
-        this.fullVisItems = Math.floor(visItems);
-        this.partVisItems = Math.ceil(visItems);
-        if (this.partVisItems >= this.itemsCount) {
-            this.firstSelItem = 0;
-        }
-        else {
-            var selCount = Math.min(this.itemsCount, this.firstSelItem + this.partVisItems) - this.firstSelItem;
-            var diff = selCount - this.fullVisItems;
-            if (diff < 0)
-                this.firstSelItem = Math.max(0, this.itemsCount - this.fullVisItems);
-        }
-        this.delayedNotify();
-    };
-    RenderListModel.prototype.getHeight = function () {
-        return this.height;
-    };
-    RenderListModel.prototype.getSelectFirst = function () {
-        return this.firstSelItem;
-    };
-    RenderListModel.prototype.getVisibleCount = function () {
-        return Math.min(this.itemsCount, this.firstSelItem + this.partVisItems) - this.firstSelItem;
-    };
-    RenderListModel.prototype.getFullVisibleCount = function () {
-        return this.fullVisItems;
-    };
-    RenderListModel.prototype.setSelectFirst = function (first) {
-        if (this.itemsCount < this.partVisItems)
-            return false;
-        var min = 0;
-        var max = this.itemsCount - this.partVisItems + 1;
-        var newFirst = common_1.clamp(first, [min, max]);
-        if (newFirst == this.firstSelItem)
-            return false;
-        this.firstSelItem = newFirst;
-        this.delayedNotify();
-        return true;
-    };
-    return RenderListModel;
-}(ListModel));
-exports.RenderListModel = RenderListModel;
-//# sourceMappingURL=list.js.map
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! bluebird */ "bluebird")))
-
-/***/ }),
-
-/***/ "../ts-react-ui/model/range-slider.js":
-/*!********************************************!*\
-  !*** ../ts-react-ui/model/range-slider.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var publisher_1 = __webpack_require__(/*! objio/common/publisher */ "../objio/common/publisher.js");
-var RangeSliderModel = /** @class */ (function (_super) {
-    __extends(RangeSliderModel, _super);
-    function RangeSliderModel() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.minMaxRange = { from: 0, to: 1 };
-        _this.range = { from: 0, to: 1 };
-        _this.sliderSize = 10;
-        _this.round = false;
-        return _this;
-    }
-    RangeSliderModel.prototype.setRound = function (round) {
-        if (this.round == round)
-            return;
-        this.round = round;
-    };
-    RangeSliderModel.prototype.getRound = function () {
-        return this.round;
-    };
-    RangeSliderModel.prototype.getSliderSize = function () {
-        return this.sliderSize;
-    };
-    RangeSliderModel.prototype.setSliderSize = function (size) {
-        this.sliderSize = size;
-    };
-    RangeSliderModel.prototype.getLastDrag = function () {
-        return this.lastDrag;
-    };
-    RangeSliderModel.prototype.setLastDrag = function (drag) {
-        this.lastDrag = drag;
-    };
-    RangeSliderModel.prototype.getMinMax = function () {
-        return __assign({}, this.minMaxRange);
-    };
-    RangeSliderModel.prototype.value = function (val) {
-        if (this.round)
-            return Math.round(val);
-        return val;
-    };
-    RangeSliderModel.prototype.setMinMax = function (range) {
-        range = {
-            from: this.value(Math.min(range.from, range.to)),
-            to: this.value(Math.max(range.from, range.to))
-        };
-        if (range.from == this.minMaxRange.from && range.to == this.minMaxRange.to)
-            return;
-        this.minMaxRange = range;
-        this.range = {
-            from: this.value(range.from),
-            to: this.value(range.to)
-        };
-        this.delayedNotify({ type: 'changing' });
-    };
-    RangeSliderModel.prototype.getRange = function () {
-        return __assign({}, this.range);
-    };
-    RangeSliderModel.prototype.calcRange = function (range) {
-        if (range.from == null && range.to == null)
-            return { from: this.range.from, to: this.range.to };
-        var from = range.from != null;
-        var to = range.to != null;
-        range = {
-            from: from ? this.value(range.from) : this.range.from,
-            to: to ? this.value(range.to) : this.range.to
-        };
-        range = {
-            from: Math.min(Math.max(range.from, this.minMaxRange.from), this.minMaxRange.to),
-            to: Math.max(Math.min(range.to, this.minMaxRange.to), this.minMaxRange.from)
-        };
-        if (from && to) {
-            range = {
-                from: Math.min(range.from, range.to),
-                to: Math.max(range.to, range.from)
-            };
-        }
-        else if (to) {
-            range = {
-                to: Math.max(range.to, this.range.from),
-                from: this.range.from
-            };
-        }
-        else if (from) {
-            range = {
-                from: Math.min(range.from, this.range.to),
-                to: this.range.to
-            };
-        }
-        return { from: range.from, to: range.to };
-    };
-    RangeSliderModel.prototype.setRange = function (range) {
-        var newRange = this.calcRange(range);
-        if (newRange.from == this.range.from && newRange.to == this.range.to)
-            return;
-        this.range.from = newRange.from;
-        this.range.to = newRange.to;
-        this.delayedNotify({ type: 'changing' });
-    };
-    RangeSliderModel.prototype.getRangeForRender = function (width, range) {
-        range = range || this.range;
-        var size = this.minMaxRange.to - this.minMaxRange.from;
-        return {
-            from: Math.round((range.from - this.minMaxRange.from) * (width - this.sliderSize * 2) / size),
-            to: Math.round((range.to - this.minMaxRange.from) * (width - this.sliderSize * 2) / size)
-        };
-    };
-    RangeSliderModel.prototype.getPositionForRender = function (width, pos) {
-        var size = this.minMaxRange.to - this.minMaxRange.from;
-        pos = Math.round((pos - this.minMaxRange.from) * (width - this.sliderSize * 2) / size);
-        var rrange = this.getRangeForRender(width, this.range);
-        if (pos > rrange.from)
-            pos += this.sliderSize;
-        if (pos - this.sliderSize > rrange.to)
-            pos += this.sliderSize;
-        return pos;
-    };
-    RangeSliderModel.prototype.getPosition = function (width, pos) {
-        var size = this.minMaxRange.to - this.minMaxRange.from;
-        var r = size / (width - this.sliderSize * 2);
-        var newPos = pos * r + this.minMaxRange.from;
-        var ssize = this.sliderSize * r;
-        if (newPos > this.range.to + ssize * 2)
-            return (pos - this.sliderSize * 2) * r + this.minMaxRange.from;
-        else if (newPos > this.range.to + ssize && newPos <= this.range.to + ssize * 2)
-            return this.range.to;
-        if (newPos > this.range.from + this.sliderSize * r)
-            return (pos - this.sliderSize) * r + this.minMaxRange.from;
-        else if (newPos > this.range.from && newPos <= this.range.from + this.sliderSize * r)
-            return this.range.from;
-        return newPos;
-    };
-    RangeSliderModel.prototype.getRenderForRange = function (pos, width) {
-        var size = this.minMaxRange.to - this.minMaxRange.from;
-        return this.minMaxRange.from + size * pos / (width - this.sliderSize * 2);
-    };
-    return RangeSliderModel;
-}(publisher_1.Publisher));
-exports.RangeSliderModel = RangeSliderModel;
-//# sourceMappingURL=range-slider.js.map
 
 /***/ }),
 
@@ -50763,202 +47279,6 @@ exports.PropsGroup = PropsGroup;
 
 /***/ }),
 
-/***/ "../ts-react-ui/range-slider.js":
-/*!**************************************!*\
-  !*** ../ts-react-ui/range-slider.js ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var range_slider_1 = __webpack_require__(/*! ./model/range-slider */ "../ts-react-ui/model/range-slider.js");
-exports.RangeSliderModel = range_slider_1.RangeSliderModel;
-var start_dragging_1 = __webpack_require__(/*! ./common/start-dragging */ "../ts-react-ui/common/start-dragging.js");
-var common_1 = __webpack_require__(/*! ./common/common */ "../ts-react-ui/common/common.js");
-var fittoparent_1 = __webpack_require__(/*! ./fittoparent */ "../ts-react-ui/fittoparent.js");
-__webpack_require__(/*! ./_range-slider.scss */ "../ts-react-ui/_range-slider.scss");
-var classes = {
-    rangeSlider: 'range-slider-ctrl',
-    sliderValue: 'slider-value',
-    slider: 'range-slider-ctrl-slider',
-    sliderLeft: 'slider-left',
-    sliderRight: 'slider-right',
-    active: 'slider-active',
-    thumb: 'range-slider-ctrl-thumb',
-    thumbRange: 'range-slider-ctrl-thumbrange'
-};
-var RangeSliderImpl = /** @class */ (function (_super) {
-    __extends(RangeSliderImpl, _super);
-    function RangeSliderImpl(props) {
-        var _this = _super.call(this, props) || this;
-        _this.ref = React.createRef();
-        _this.subscriber = function () {
-            _this.setState({});
-        };
-        _this.onChanging = function () {
-            _this.props.onChanging && _this.props.onChanging(_this.state.range.from, _this.state.range.to, _this.state.active);
-        };
-        _this.onMouseDown = function (evt, key) {
-            var model = _this.state.model;
-            var width = _this.props.width;
-            var range = model.getRangeForRender(width);
-            start_dragging_1.startDragging({ x: range[key], y: 0 }, {
-                onDragStart: function () {
-                    model.setLastDrag(key);
-                    _this.setState({ active: key == 'from' ? 'left' : 'right' });
-                },
-                onDragging: function (evt) {
-                    var range = __assign({}, model.getRange());
-                    range[key] = model.getRenderForRange(evt.x, width);
-                    if (key == 'from')
-                        range[key] = common_1.clamp(range[key], [model.getMinMax().from, range.to]);
-                    else if (key == 'to')
-                        range[key] = common_1.clamp(range[key], [range.from, model.getMinMax().to]);
-                    _this.setState({ range: range }, _this.onChanging);
-                },
-                onDragEnd: function () {
-                    _this.onChanged();
-                    model.setRange(_this.state.range);
-                    _this.setState({ active: null, range: null });
-                    model.delayedNotify({ type: 'changed' });
-                }
-            })(evt.nativeEvent);
-        };
-        _this.onMouseDownThumb = function (evt) {
-            var model = _this.state.model;
-            var width = _this.props.width;
-            var rrange = model.getRangeForRender(width);
-            var range = model.getRange();
-            var minMaxRange = model.getMinMax();
-            var len = range.to - range.from;
-            var minMax = [minMaxRange.from, range.from + minMaxRange.to - range.to];
-            start_dragging_1.startDragging({ x: rrange.from, y: 0 }, {
-                onDragStart: function () {
-                    model.setLastDrag('thumb');
-                    _this.setState({ active: 'thumb' });
-                },
-                onDragging: function (evt) {
-                    var pos = model.getRenderForRange(evt.x, width);
-                    pos = Math.min(minMax[1], pos);
-                    pos = Math.max(minMax[0], pos);
-                    _this.setState({ range: model.calcRange({ from: pos, to: pos + len }) }, _this.onChanging);
-                },
-                onDragEnd: function () {
-                    _this.onChanged();
-                    model.setRange(_this.state.range);
-                    _this.setState({ active: null, range: null });
-                    model.delayedNotify({ type: 'changed' });
-                }
-            })(evt.nativeEvent);
-        };
-        _this.onSeek = function (e) {
-            var skip = [classes.sliderLeft, classes.sliderRight, classes.thumbRange];
-            if (e.target.className.split(' ').some(function (v) { return skip.indexOf(v) != -1; }))
-                return;
-            var bbox = _this.ref.current.getBoundingClientRect();
-            var p = e.pageX - bbox.left;
-            _this.setState({ value: _this.state.model.getPosition(_this.props.width, p) });
-            start_dragging_1.startDragging({ x: p, y: 0 }, {
-                onDragging: function (evt) {
-                    var minMax = _this.state.model.getMinMax();
-                    var newp = _this.state.model.getPosition(_this.props.width, evt.x);
-                    newp = common_1.clamp(newp, [minMax.from, minMax.to]);
-                    _this.setState({ value: newp });
-                    _this.props.onSeek && _this.props.onSeek(newp);
-                },
-                onDragEnd: function () {
-                    _this.props.onSeeked && _this.props.onSeeked(_this.state.value);
-                }
-            })(e.nativeEvent);
-        };
-        var model = props.model || new range_slider_1.RangeSliderModel();
-        if (props.min != null && props.max != null)
-            model.setMinMax({ from: props.min || 0, to: props.max || 1 });
-        if (props.range != null)
-            model.setRange({ from: props.range[0], to: props.range[1] });
-        _this.state = {
-            model: model
-        };
-        return _this;
-    }
-    RangeSliderImpl.prototype.componentDidMount = function () {
-        this.state.model.subscribe(this.subscriber);
-    };
-    RangeSliderImpl.prototype.componentWillUnmount = function () {
-        this.state.model.unsubscribe(this.subscriber);
-    };
-    RangeSliderImpl.getDerivedStateFromProps = function (props, state) {
-        if (props.range != null)
-            state.model.setRange({ from: props.range[0], to: props.range[1] });
-        if (props.min != null || props.max != null)
-            state.model.setMinMax({ from: props.min, to: props.max });
-        if (props.round != null)
-            state.model.setRound(props.round);
-        if (props.height != null) {
-            state.model.setSliderSize(props.height);
-        }
-        return null;
-    };
-    RangeSliderImpl.prototype.onChanged = function () {
-        this.props.onChanged && this.props.onChanged(this.state.range.from, this.state.range.to);
-    };
-    RangeSliderImpl.prototype.render = function () {
-        var _this = this;
-        var model = this.state.model;
-        var _a = this.props, width = _a.width, height = _a.height, className = _a.className, extraClass = _a.extraClass, style = _a.style;
-        var _b = this.state, active = _b.active, range = _b.range;
-        var ssize = height;
-        var value = this.props.value != null ? this.props.value : this.state.value;
-        var rrange = model.getRangeForRender(width, range);
-        var pos = model.getPositionForRender(width, value);
-        return (React.createElement("div", { ref: this.ref, className: common_1.className(className || classes.rangeSlider, extraClass), style: __assign({}, style, { height: height }), onMouseDown: this.onSeek },
-            React.createElement("div", { className: common_1.className(classes.thumbRange, active == 'thumb' && classes.active), style: { left: 0, width: width, borderRadius: ssize / 2, pointerEvents: this.props.dragThumb === false ? 'none' : null }, onMouseDown: this.onMouseDownThumb }),
-            (this.props.onSeeked || this.props.onSeek) &&
-                React.createElement("div", { className: common_1.className(classes.thumb), style: { left: 0, width: pos, backgroundColor: 'red', borderRadius: ssize / 2 + "px 0px 0px " + ssize / 2 + "px" } }),
-            React.createElement("div", { className: common_1.className(classes.thumb), style: { left: 0, width: rrange.from + ssize / 2, opacity: 0.6, backgroundColor: 'white' } }),
-            React.createElement("div", { className: common_1.className(classes.thumb), style: { left: rrange.to + ssize + ssize / 2, right: 0, opacity: 0.6, backgroundColor: 'white' } }),
-            React.createElement("div", { className: common_1.className(classes.slider, classes.sliderLeft, active == 'left' && classes.active), style: { left: rrange.from, height: ssize, width: ssize, top: height / 2 - ssize / 2, borderRadius: ssize / 2 }, onMouseDown: function (evt) { return _this.onMouseDown(evt, 'from'); } }),
-            React.createElement("div", { className: common_1.className(classes.slider, classes.sliderRight, active == 'right' && classes.active), style: { right: (width - ssize * 2) - rrange.to, height: ssize, width: ssize, top: height / 2 - ssize / 2, borderRadius: ssize / 2 }, onMouseDown: function (evt) { return _this.onMouseDown(evt, 'to'); } })));
-    };
-    return RangeSliderImpl;
-}(React.Component));
-exports.RangeSliderImpl = RangeSliderImpl;
-function RangeSlider(props) {
-    return (React.createElement(fittoparent_1.FitToParent, { wrapToFlex: props.wrapToFlex },
-        React.createElement(RangeSliderImpl, __assign({}, props))));
-}
-exports.RangeSlider = RangeSlider;
-//# sourceMappingURL=range-slider.js.map
-
-/***/ }),
-
 /***/ "../ts-react-ui/resizer.js":
 /*!*********************************!*\
   !*** ../ts-react-ui/resizer.js ***!
@@ -51076,153 +47396,6 @@ var HorizontalResizer = /** @class */ (function (_super) {
 }(React.Component));
 exports.HorizontalResizer = HorizontalResizer;
 //# sourceMappingURL=resizer.js.map
-
-/***/ }),
-
-/***/ "../ts-react-ui/scrollbar.js":
-/*!***********************************!*\
-  !*** ../ts-react-ui/scrollbar.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
-var start_dragging_1 = __webpack_require__(/*! ./common/start-dragging */ "../ts-react-ui/common/start-dragging.js");
-var common_1 = __webpack_require__(/*! ./common/common */ "../ts-react-ui/common/common.js");
-var timer_1 = __webpack_require__(/*! objio/common/timer */ "../objio/common/timer.js");
-__webpack_require__(/*! ./_scrollbar.scss */ "../ts-react-ui/_scrollbar.scss");
-var Scrollbar = /** @class */ (function (_super) {
-    __extends(Scrollbar, _super);
-    function Scrollbar(props) {
-        var _this = _super.call(this, props) || this;
-        _this.timerUp = new timer_1.Timer(function () {
-            _this.timerUp.run(100);
-            _this.props.setSelectFirst(_this.props.firstItem - 1);
-        });
-        _this.timerDown = new timer_1.Timer(function () {
-            _this.timerDown.run(100);
-            _this.props.setSelectFirst(_this.props.firstItem + 1);
-        });
-        _this.state = {};
-        return _this;
-    }
-    Scrollbar.prototype.renderElement = function (props, type) {
-        return (React.createElement("div", __assign({}, props)));
-    };
-    Scrollbar.prototype.render = function () {
-        var _this = this;
-        var props = this.props;
-        var className = props.className || 'list-sbar';
-        var extClassName = props.extClassName;
-        var width = props.width || 16;
-        var buttons = props.buttons != null ? props.buttons : true;
-        var sbSize = props.minThumbSize || 20;
-        var size = props.height;
-        var hiddenRows = props.itemsCount - Math.floor(props.itemsHeight / props.itemHeight);
-        var style = {
-            display: hiddenRows <= 0 ? 'none' : null,
-            width: width,
-            flexGrow: 0,
-            position: 'relative'
-        };
-        var buttonSize = width;
-        var buttonUp = null;
-        var buttonDown = null;
-        if (buttons) {
-            size -= buttonSize * 2;
-            buttonUp = ((this.props.renderElement || this.renderElement)({
-                className: 'b-up',
-                style: { height: buttonSize, width: width, position: 'absolute', top: 0 },
-                onMouseDown: function (event) {
-                    start_dragging_1.startDragging({ x: 0, y: 0 }, {
-                        onDragStart: function () {
-                            props.setSelectFirst(props.firstItem - 1);
-                            _this.timerUp.run(500);
-                        },
-                        onDragEnd: function () {
-                            _this.timerUp.stop();
-                        }
-                    })(event.nativeEvent);
-                }
-            }, 'b-up'));
-            buttonDown = ((this.props.renderElement || this.renderElement)({
-                className: 'b-down',
-                style: { height: buttonSize, width: width, position: 'absolute', bottom: 0 },
-                onMouseDown: function (event) {
-                    start_dragging_1.startDragging({ x: 0, y: 0 }, {
-                        onDragStart: function () {
-                            props.setSelectFirst(props.firstItem + 1);
-                            _this.timerDown.run(500);
-                        },
-                        onDragEnd: function () {
-                            _this.timerDown.stop();
-                        }
-                    })(event.nativeEvent);
-                }
-            }, 'b-down'));
-        }
-        var pps = Math.max(Math.min(Math.floor((size - sbSize) / hiddenRows), 10), 1);
-        sbSize = pps > 1 ? size - pps * hiddenRows : sbSize;
-        var bottomPos = size - sbSize;
-        var scroll = pps > 1 ? pps * props.firstItem : (props.firstItem / hiddenRows) * bottomPos;
-        var top = this.state.offset || scroll || 0;
-        if (buttonUp)
-            top += buttonSize;
-        return (React.createElement("div", { className: common_1.className(className, extClassName), style: style },
-            buttonUp,
-            (this.props.renderElement || this.renderElement)({
-                className: 'thumb',
-                style: { top: top, width: width, height: sbSize, position: 'absolute' },
-                onMouseDown: function (event) { return start_dragging_1.startDragging({ x: 0, y: scroll, minDist: 2 }, {
-                    onDragging: function (evt) {
-                        var pos = Math.min(Math.max(0, evt.y), bottomPos);
-                        var n = pps > 1 ? Math.floor(pos / pps) : Math.floor((pos / bottomPos) * hiddenRows);
-                        props.setSelectFirst(n);
-                        if (pps > 1) {
-                            _this.setState({ offset: n * pps });
-                        }
-                        else {
-                            _this.setState({ offset: (n / hiddenRows) * bottomPos });
-                        }
-                    },
-                    onDragEnd: function () {
-                        _this.setState({ offset: null });
-                    }
-                })(event.nativeEvent); }
-            }, 'thumb'),
-            buttonDown));
-    };
-    return Scrollbar;
-}(React.Component));
-exports.Scrollbar = Scrollbar;
-//# sourceMappingURL=scrollbar.js.map
 
 /***/ }),
 
@@ -52541,44 +48714,6 @@ exports.VolumeBar = VolumeBar;
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../objio-layout/view/_category-filter.scss":
-/*!*********************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!../objio-layout/view/_category-filter.scss ***!
-  \*********************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../objio-client/node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".category-filter {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column; }\n  .category-filter .list2-ctrl .list2-item {\n    white-space: nowrap;\n    height: auto;\n    padding: 3px;\n    overflow-x: hidden; }\n  .category-filter .list-ctrl .list-ctrl-cell i {\n    margin-right: 5px;\n    opacity: 0; }\n    .category-filter .list-ctrl .list-ctrl-cell i:hover {\n      opacity: 0.5; }\n  .category-filter .list-ctrl .list-ctrl-cell .excluded i {\n    opacity: 1; }\n  .category-filter .category-item-wrap {\n    background-color: white;\n    padding: 2px; }\n    .category-filter .category-item-wrap:hover {\n      background-color: silver; }\n  .category-filter .category-item {\n    overflow: visible;\n    background-color: lightgreen;\n    white-space: nowrap; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../objio-layout/view/_drilldown-table.scss":
-/*!*********************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!../objio-layout/view/_drilldown-table.scss ***!
-  \*********************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../objio-client/node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".drilldown-table {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../objio-layout/view/_obj-holder-view.scss":
 /*!*********************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!../objio-layout/view/_obj-holder-view.scss ***!
@@ -52592,25 +48727,6 @@ exports = module.exports = __webpack_require__(/*! ../../objio-client/node_modul
 
 // module
 exports.push([module.i, ".layout-cont {\n  width: 100%;\n  flex-grow: 1;\n  display: flex;\n  flex-direction: column;\n  border: 1px solid gray; }\n  .layout-cont-header {\n    flex-grow: 0;\n    display: flex;\n    background-color: silver;\n    min-height: 20px;\n    padding-left: 5px;\n    padding-right: 5px;\n    white-space: nowrap; }\n  .layout-cont.select .layout-cont-header {\n    background-color: #8fbfdf; }\n  .layout-cont-tools {\n    flex-grow: 0; }\n    .layout-cont-tools i {\n      cursor: pointer;\n      margin-right: 5px; }\n  .layout-cont-title {\n    flex-grow: 1;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n    .layout-cont-titlewrap {\n      min-height: 20px; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../objio-layout/view/_range-filter.scss":
-/*!******************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!../objio-layout/view/_range-filter.scss ***!
-  \******************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../objio-client/node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".range-filter {\n  padding: 5px;\n  display: flex; }\n  .range-filter-ctrl {\n    flex-grow: 1; }\n  .range-filter-label {\n    min-width: 50px;\n    max-width: 50px;\n    overflow: hidden; }\n", ""]);
 
 // exports
 
@@ -52687,63 +48803,6 @@ exports = module.exports = __webpack_require__(/*! ../objio-client/node_modules/
 
 // module
 exports.push([module.i, ".layout-ctrl {\n  display: flex;\n  flex-grow: 1; }\n\n.layout-ctrl-row {\n  position: relative;\n  display: flex;\n  flex-grow: 1;\n  flex-direction: row; }\n\n.layout-ctrl-col {\n  position: relative;\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column; }\n\n.layout-ctrl-item {\n  position: relative;\n  display: flex;\n  flex-grow: 1; }\n\n.layout-ctrl-rows-spliter {\n  position: absolute;\n  right: 0px;\n  top: 0px;\n  bottom: 0px;\n  width: 4px;\n  background-color: blue;\n  opacity: 0;\n  cursor: e-resize; }\n  .layout-ctrl-rows-spliter:hover {\n    opacity: 0.5; }\n\n.layout-ctrl-cols-spliter {\n  position: absolute;\n  bottom: 0px;\n  left: 0px;\n  right: 0px;\n  height: 4px;\n  background-color: blue;\n  opacity: 0;\n  cursor: n-resize; }\n  .layout-ctrl-cols-spliter:hover {\n    opacity: 0.5; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../ts-react-ui/_list.scss":
-/*!****************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!../ts-react-ui/_list.scss ***!
-  \****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../objio-client/node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".list-ctrl {\n  display: flex;\n  overflow: hidden;\n  outline: none; }\n  .list-ctrl .list-ctrl-content {\n    display: flex;\n    flex-grow: 1;\n    background-color: silver; }\n  .list-ctrl .list-ctrl-column {\n    flex-grow: 1;\n    min-width: 1px;\n    overflow: hidden;\n    white-space: nowrap; }\n  .list-ctrl .list-ctrl-row {\n    position: relative;\n    box-sizing: border-box;\n    background-color: white;\n    padding-left: 3px;\n    padding-right: 3px; }\n  .list-ctrl .list-ctrl-header {\n    position: relative;\n    box-sizing: border-box;\n    background-color: #f0f0f0;\n    padding-left: 3px;\n    padding-right: 3px; }\n  .list-ctrl .list-ctrl-selrow {\n    background-color: #cce8ff; }\n  .list-ctrl .list-ctrl-cell {\n    cursor: default;\n    position: absolute;\n    width: calc(100% - 6px);\n    overflow: hidden;\n    text-overflow: ellipsis;\n    user-select: none; }\n\n.list-ctrl.list-ctrl-border .list-ctrl-content {\n  border: 1px solid silver; }\n\n.list-ctrl.list-ctrl-border .list-ctrl-row, .list-ctrl.list-ctrl-border .list-ctrl-header {\n  border-bottom: 1px solid silver;\n  border-right: 1px solid silver; }\n\n.list-ctrl.list-ctrl-border .list-ctrl-column:last-child .list-ctrl-row, .list-ctrl.list-ctrl-border .list-ctrl-column:last-child .list-ctrl-header {\n  border-right: none; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../ts-react-ui/_range-slider.scss":
-/*!************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!../ts-react-ui/_range-slider.scss ***!
-  \************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../objio-client/node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".range-slider-ctrl {\n  position: relative;\n  height: 20px;\n  user-select: none; }\n  .range-slider-ctrl-slider {\n    position: absolute;\n    background-color: white;\n    width: 10px;\n    height: 20px;\n    border: 1px solid black;\n    box-sizing: border-box; }\n    .range-slider-ctrl-slider.slider-active {\n      background-color: silver; }\n  .range-slider-ctrl-thumb {\n    position: absolute;\n    top: 5px;\n    bottom: 5px;\n    background-color: gray; }\n    .range-slider-ctrl-thumb.slider-active {\n      background-color: #575757; }\n  .range-slider-ctrl-thumbrange {\n    position: absolute;\n    top: 5px;\n    bottom: 5px;\n    background-color: gray; }\n    .range-slider-ctrl-thumbrange.slider-active {\n      background-color: #575757; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!../ts-react-ui/_scrollbar.scss":
-/*!*********************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!../ts-react-ui/_scrollbar.scss ***!
-  \*********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../objio-client/node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".list-sbar {\n  background-color: #f1f1f1;\n  box-sizing: border-box; }\n  .list-sbar .thumb {\n    border: 1px solid #f1f1f1;\n    background-color: #c1c1c1;\n    box-sizing: inherit; }\n    .list-sbar .thumb:hover {\n      background-color: #a8a8a8; }\n    .list-sbar .thumb:active {\n      background-color: #a8a8a8; }\n  .list-sbar .b-up {\n    border: none;\n    background-color: #f1f1f1;\n    box-sizing: inherit;\n    text-align: center; }\n    .list-sbar .b-up:hover {\n      background-color: #d2d2d2; }\n    .list-sbar .b-up:active {\n      background-color: #d2d2d2; }\n    .list-sbar .b-up:before {\n      content: \"\\F0D8\"; }\n  .list-sbar .b-down {\n    border: none;\n    background-color: #f1f1f1;\n    box-sizing: inherit;\n    text-align: center; }\n    .list-sbar .b-down:hover {\n      background-color: #d2d2d2; }\n    .list-sbar .b-down:active {\n      background-color: #d2d2d2; }\n    .list-sbar .b-down:before {\n      content: \"\\F0D7\"; }\n", ""]);
 
 // exports
 
@@ -53942,7 +50001,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                                     }
                                 }]
                         });
-                        objectsToCreate = Objects.getObjectsToCreate().concat(SQLITE3.getObjectsToCreate(), MYSQL.getObjectsToCreate());
+                        objectsToCreate = Objects.getObjectsToCreate().concat(SQLITE3.getObjectsToCreate(), MYSQL.getObjectsToCreate(), Layout.getObjectsToCreate());
                         Objects.registerViews({
                             classObj: app_view_1.App,
                             views: [
